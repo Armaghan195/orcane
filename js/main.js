@@ -364,7 +364,7 @@
      Placeholder anchors — the sections they point at do not exist yet
      --------------------------------------------------------------------- */
   (function pendingLinks() {
-    var ids = ["services", "why", "product", "process", "stack", "book"];
+    var ids = ["services", "why", "product", "projects", "process", "stack", "book"];
     document.addEventListener("click", function (e) {
       var a = e.target.closest('a[href^="#"]');
       if (!a) return;

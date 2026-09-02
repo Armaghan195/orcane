@@ -37,7 +37,8 @@
     <nav class="header-nav" aria-label="Primary">
       <a class="nav-link" href="#why"><span>Why Orcane</span></a>
       <a class="nav-link" href="#services"><span>Services</span></a>
-      <a class="nav-link" href="#product"><span>Work</span></a>
+      <a class="nav-link" href="#product"><span>Products</span></a>
+      <a class="nav-link" href="#projects"><span>Projects</span></a>
       <a class="nav-link" href="#process"><span>Process</span></a>
     </nav>
 
@@ -57,9 +58,10 @@
   <nav class="mobile-nav-inner" aria-label="Mobile">
     <a href="#why"><span class="mi">01</span> Why Orcane</a>
     <a href="#services"><span class="mi">02</span> Services</a>
-    <a href="#product"><span class="mi">03</span> Work</a>
-    <a href="#process"><span class="mi">04</span> Process</a>
-    <a href="#stack"><span class="mi">05</span> Tech Stack</a>
+    <a href="#product"><span class="mi">03</span> Products</a>
+    <a href="#projects"><span class="mi">04</span> Projects</a>
+    <a href="#process"><span class="mi">05</span> Process</a>
+    <a href="#stack"><span class="mi">06</span> Tech Stack</a>
     <div class="mobile-nav-foot">
       <a class="btn btn-solid btn-block" href="#book">Get a Proposal</a>
       <a class="link-quiet" href="mailto:hello@orcane.io">hello@orcane.io</a>
@@ -134,6 +136,45 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============ CLIENTS — a logo row that never stops moving ============ -->
+<!--
+  The track holds the client list TWICE. The animation slides it exactly -50%,
+  so the moment the first copy leaves the frame the second one is sitting in
+  precisely the same place — the loop has no seam and no jump. The duplicate is
+  aria-hidden so a screen reader hears each client once.
+
+  To swap a wordmark for a real logo file, drop the asset in assets/clients/
+  and replace the <span class="marq-word"> with:
+      <img src="assets/clients/<name>.svg" alt="<Client name>">
+  in BOTH copies of the list. .marq-item img is already sized and normalised.
+-->
+<section class="marq" aria-label="Clients we have built for">
+  <div class="shell">
+    <p class="marq-h">Trusted by the businesses we build for</p>
+  </div>
+
+  <div class="marq-view">
+    <div class="marq-track">
+      <ul class="marq-list">
+        <li class="marq-item"><span class="marq-word">Meeran Traders</span></li>
+        <li class="marq-item"><span class="marq-word">Scounts</span></li>
+        <li class="marq-item"><span class="marq-word">LaunchPaid</span></li>
+        <li class="marq-item"><span class="marq-word">Creator Circle</span></li>
+        <li class="marq-item"><span class="marq-word">Revenue Express</span></li>
+        <li class="marq-item"><span class="marq-word">Social Onyx</span></li>
+      </ul>
+      <ul class="marq-list" aria-hidden="true">
+        <li class="marq-item"><span class="marq-word">Meeran Traders</span></li>
+        <li class="marq-item"><span class="marq-word">Scounts</span></li>
+        <li class="marq-item"><span class="marq-word">LaunchPaid</span></li>
+        <li class="marq-item"><span class="marq-word">Creator Circle</span></li>
+        <li class="marq-item"><span class="marq-word">Revenue Express</span></li>
+        <li class="marq-item"><span class="marq-word">Social Onyx</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -636,360 +677,224 @@
   </div>
 </section>
 
-<!-- ============ WORK — shipped case studies on a swipeable rail ============ -->
-<section class="prod" id="product">
+<!-- ============ PRODUCTS — what Orcane owns and operates ============ -->
+<section class="prd" id="product">
+  <div class="shell">
+
+    <header class="sec-head">
+      <p class="sec-eyebrow">Our products</p>
+      <h2 class="sec-title">We don't only build<br>for clients. We ship our own.</h2>
+      <p class="sec-lede">
+        The fastest way to judge an engineering team is to look at what they own and
+        operate. RestoCloud is Orcane's own multi-tenant SaaS platform — the same
+        architecture, billing, and release pipelines we build for you.
+      </p>
+    </header>
+
+    <article class="prd-card">
+      <div class="prd-head">
+        <div>
+          <p class="prd-tag"><span class="prd-live">Live</span> Orcane product · Multi-tenant SaaS</p>
+          <h3 class="prd-name">RestoCloud</h3>
+          <p class="prd-sub">White-label restaurant ordering, on one unified backend</p>
+        </div>
+        <p class="prd-no">01</p>
+      </div>
+
+      <p class="prd-desc">
+        A fully white-labelled ordering platform that gives any restaurant brand its own
+        custom-branded app on the App Store and Google Play, powered by a single unified
+        cloud backend. A restaurant chain launches its own app without operating any
+        infrastructure of its own — and we maintain one platform instead of dozens of
+        one-off builds.
+      </p>
+
+      <div class="prd-body">
+        <div class="prd-mods-wrap">
+          <p class="prd-h">Platform modules</p>
+          <ul class="prd-mods">
+            <li>
+              <span class="prd-mod-n">White-label customer app</span>
+              <span class="prd-mod-d">A branded app per restaurant — their logo, colours, and menu — with browsing, customisation, and live order tracking over FCM push, deployed independently to both stores.</span>
+            </li>
+            <li>
+              <span class="prd-mod-n">Generic restaurant admin portal</span>
+              <span class="prd-mod-d">One shared admin app for every tenant, with dynamic tenant login, order dashboards, menu and pricing management, and real-time sales reporting.</span>
+            </li>
+            <li>
+              <span class="prd-mod-n">Platform super admin console</span>
+              <span class="prd-mod-d">Our operator dashboard for onboarding tenants, monitoring platform health, running automated billing, and controlling per-tenant app versions.</span>
+            </li>
+            <li>
+              <span class="prd-mod-n">Hybrid billing engine</span>
+              <span class="prd-mod-d">A 3–5% commission per order or a flat monthly fee against an order quota, auto-switching the moment usage crosses the line.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="prd-side">
+          <p class="prd-h">Engineering decisions</p>
+          <ul class="prd-notes">
+            <li>Modular monolith on Cloud Run — fast iteration without premature microservice complexity</li>
+            <li>Firestore as a live order projection layer, never the system of record</li>
+            <li>BigQuery powers analytics without touching production data paths</li>
+          </ul>
+
+          <p class="prd-h prd-h-2">Built on</p>
+          <ul class="prd-chips">
+            <li>GCP Cloud Run</li>
+            <li>Firestore</li>
+            <li>Firebase Auth</li>
+            <li>Flutter</li>
+            <li>React Native</li>
+            <li>BigQuery</li>
+            <li>Pub/Sub</li>
+          </ul>
+
+          <ul class="prd-figs">
+            <li><span class="prd-fig-n">99.9%</span> <span class="prd-fig-l">Uptime SLA target</span></li>
+            <li><span class="prd-fig-n">&lt;120ms</span> <span class="prd-fig-l">Target API response, P95</span></li>
+          </ul>
+
+          <a class="btn btn-solid prd-cta" data-magnetic href="#book">
+            Talk to us about RestoCloud
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ PROJECTS — solutions built for clients, on a rail ============ -->
+<section class="proj" id="projects">
 
   <div class="shell">
     <header class="sec-head">
-      <p class="sec-eyebrow">Proof, not promises</p>
-      <h2 class="sec-title">Real work we've shipped,<br>end to end.</h2>
+      <p class="sec-eyebrow">Our projects</p>
+      <h2 class="sec-title">Solutions we've built<br>for our clients.</h2>
       <p class="sec-lede">
-        Live products across FinTech, SaaS, ERP, and marketing — architected, built,
-        deployed, and maintained by our team. Every one of them is a system somebody's
-        business runs on today.
+        Live systems across ERP, FinTech, SaaS, and marketing — scoped, architected, built,
+        and deployed end to end by our team. Every one of them is running a real business
+        today.
       </p>
     </header>
   </div>
 
-  <div class="prod-railwrap">
-    <div class="prod-rail" id="prod-rail" tabindex="0" role="group" aria-label="Orcane case studies — scroll or swipe">
+  <div class="rail" data-rail>
+    <div class="rail-wrap">
+      <div class="rail-track" data-rail-track tabindex="0" role="group" aria-label="Client projects — scroll or swipe">
 
-      <article class="prod-card" data-name="Restaurant SaaS">
-        <div class="prod-top">
-          <div>
-            <p class="prod-tag"><span class="prod-live">Live</span> Multi-tenant SaaS</p>
-            <h3 class="prod-name">Restaurant SaaS Platform</h3>
-            <p class="prod-sub">White-label ordering, one unified backend</p>
-          </div>
-          <p class="prod-no">01</p>
-        </div>
+        <article class="proj-card" data-name="Meeran Traders ERP">
+          <p class="proj-sector">ERP &amp; POS · Building materials</p>
+          <h3 class="proj-name">Meeran Traders ERP</h3>
+          <p class="proj-desc">
+            Decades of ledgers on paper, with no way to reconcile dispatch against billing.
+            We built a dual-portal ERP — daily dispatch and async finance — auto-reconciled,
+            in the client's exact vocabulary.
+          </p>
+          <ul class="proj-chips"><li>FastAPI</li><li>PostgreSQL</li><li>React</li><li>FBR POS</li></ul>
+          <p class="proj-fig"><span class="proj-fig-n">17</span> ledger columns mirrored exactly</p>
+          <a class="proj-btn" href="#book">
+            <span>Discuss a build like this</span>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </article>
 
-        <p class="prod-desc">
-          A growing restaurant brand needed its own branded ordering app without building or
-          operating any backend infrastructure. We shipped a white-label platform: a dedicated
-          customer app per brand, a shared restaurant admin dashboard, and a super-admin
-          console for platform-wide control — all on one backend.
-        </p>
+        <article class="proj-card" data-name="LaunchPaid">
+          <p class="proj-sector">SaaS · Influencer marketing</p>
+          <h3 class="proj-name">LaunchPaid</h3>
+          <p class="proj-desc">
+            Agencies were running TikTok Shop campaigns across a dozen disconnected tools.
+            One CRM with role-based dashboards for agencies, creators, and brands, live GMV
+            tracking, and automated payouts.
+          </p>
+          <ul class="proj-chips"><li>Next.js</li><li>FastAPI</li><li>TikTok API</li><li>Stripe</li></ul>
+          <p class="proj-fig"><span class="proj-fig-n">100K+</span> concurrent users by design</p>
+          <a class="proj-btn" href="#book">
+            <span>Discuss a build like this</span>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </article>
 
-        <div class="prod-body">
-          <div>
-            <p class="prod-h">Key features</p>
-            <ul class="prod-mods">
-              <li>
-                <span class="prod-mod-n">White-label customer app</span>
-                <span class="prod-mod-d">A branded app per restaurant with menu browsing, customisation, and live order tracking via FCM push notifications.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Generic restaurant admin portal</span>
-                <span class="prod-mod-d">One shared admin app for every tenant, with dynamic tenant login, order dashboards, and menu management.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Super admin console</span>
-                <span class="prod-mod-d">Platform-wide tenant onboarding, billing, health monitoring, and version control for the operating company.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Hybrid billing engine</span>
-                <span class="prod-mod-d">A 3–5% commission or a flat monthly fee for a set order quota, auto-switching the moment usage crosses the line.</span>
-              </li>
-            </ul>
-          </div>
+        <article class="proj-card" data-name="Scounts">
+          <p class="proj-sector">FinTech · Tax consultancy</p>
+          <h3 class="proj-name">Scounts</h3>
+          <p class="proj-desc">
+            Filing income tax in Pakistan meant a confusing FBR portal or a lawyer's fee. A
+            guided mobile app for return filing, NTN registration, and salary tax, backed by
+            live FBR data and licensed consultants.
+          </p>
+          <ul class="proj-chips"><li>Flutter</li><li>Firebase</li><li>FBR API</li><li>E2E crypto</li></ul>
+          <p class="proj-fig"><span class="proj-fig-n">500+</span> installs, live since 2023</p>
+          <a class="proj-btn" href="#book">
+            <span>Discuss a build like this</span>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </article>
 
-          <div class="prod-side">
-            <p class="prod-h">Built on</p>
-            <ul class="prod-chips">
-              <li>GCP Cloud Run</li>
-              <li>Firestore</li>
-              <li>Firebase Auth</li>
-              <li>Flutter</li>
-              <li>React Native</li>
-              <li>BigQuery</li>
-              <li>Pub/Sub</li>
-            </ul>
+        <article class="proj-card" data-name="Creator Circle Bot">
+          <p class="proj-sector">Automation · Discord &amp; analytics</p>
+          <h3 class="proj-name">Creator Circle Bot</h3>
+          <p class="proj-desc">
+            A creator community needed real TikTok Shop handles verified and tracked without
+            checking numbers by hand. A Discord bot with instant verification, a scheduled
+            sync pipeline, and a drill-down dashboard.
+          </p>
+          <ul class="proj-chips"><li>Python</li><li>discord.py</li><li>FastAPI</li><li>Chart.js</li></ul>
+          <p class="proj-fig"><span class="proj-fig-n">5 hrs</span> automatic sync, zero manual work</p>
+          <a class="proj-btn" href="#book">
+            <span>Discuss a build like this</span>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </article>
 
-            <p class="prod-h prod-h-2">By the numbers</p>
-            <ul class="prod-figs">
-              <li><span class="prod-fig-n">99.9%</span> <span class="prod-fig-l">Uptime SLA target</span></li>
-              <li><span class="prod-fig-n">&lt;120ms</span> <span class="prod-fig-l">Target API response, P95</span></li>
-            </ul>
+        <article class="proj-card" data-name="Revenue Express">
+          <p class="proj-sector">Web platform · Marketing agency</p>
+          <h3 class="proj-name">Revenue Express</h3>
+          <p class="proj-desc">
+            Their contact form was silently discarding every lead. One Next.js app running
+            the marketing site, an SEO blog, and an internal command centre with first-party
+            analytics and a full lead pipeline.
+          </p>
+          <ul class="proj-chips"><li>Next.js</li><li>PostgreSQL</li><li>Vercel</li><li>RSC</li></ul>
+          <p class="proj-fig"><span class="proj-fig-n">0</span> leads lost, every submission tracked</p>
+          <a class="proj-btn" href="#book">
+            <span>Discuss a build like this</span>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </article>
 
-            <a class="prod-more" href="#book">
-              <span>Discuss a build like this</span>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
+        <article class="proj-card" data-name="Social Onyx">
+          <p class="proj-sector">Marketing site · Reputation management</p>
+          <h3 class="proj-name">Social Onyx</h3>
+          <p class="proj-desc">
+            A trust-sensitive service that had to convert without a hard sell. An interactive
+            site with a tappable phone demo built in hand-rolled Canvas, transparent
+            pay-after-delivery pricing, and full SEO instrumentation.
+          </p>
+          <ul class="proj-chips"><li>Canvas JS</li><li>No framework</li><li>JSON-LD</li><li>GitHub Pages</li></ul>
+          <p class="proj-fig"><span class="proj-fig-n">$0</span> upfront — billed after delivery</p>
+          <a class="proj-btn" href="https://socialonyx.co" target="_blank" rel="noopener">
+            <span>Visit socialonyx.co</span>
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
+          </a>
+        </article>
 
-      <article class="prod-card" data-name="Meeran Traders ERP">
-        <div class="prod-top">
-          <div>
-            <p class="prod-tag"><span class="prod-live">Live</span> ERP &amp; POS</p>
-            <h3 class="prod-name">Meeran Traders ERP</h3>
-            <p class="prod-sub">Custom ERP for a building materials distributor</p>
-          </div>
-          <p class="prod-no">02</p>
-        </div>
-
-        <p class="prod-desc">
-          Decades of ledgers on paper and disconnected spreadsheets, with no way to reconcile
-          dispatch against billing. We built a dual-portal ERP — a daily dispatch view and an
-          asynchronous finance and khata view — automatically reconciled against each other,
-          using the client's exact vocabulary throughout.
-        </p>
-
-        <div class="prod-body">
-          <div>
-            <p class="prod-h">Key features</p>
-            <ul class="prod-mods">
-              <li>
-                <span class="prod-mod-n">Dual-portal architecture</span>
-                <span class="prod-mod-d">A daily godown and dispatch portal for physical stock movement, and an async finance portal for billing, sharing one database.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Automated reconciliation engine</span>
-                <span class="prod-mod-d">Continuously cross-matches physical dispatch records against financial invoices across builders, drivers, and stock.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Dual pricing &amp; tax layers</span>
-                <span class="prod-mod-d">An FBR-compliant invoicing layer alongside an internal true P&amp;L layer, tracking real margins and carriage costs.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Client-exact terminology</span>
-                <span class="prod-mod-d">Every label — khata, MDA, godown — mirrors the client's own business vocabulary, so nobody needed retraining.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="prod-side">
-            <p class="prod-h">Built on</p>
-            <ul class="prod-chips">
-              <li>FastAPI</li>
-              <li>PostgreSQL</li>
-              <li>React</li>
-              <li>FBR POS API</li>
-              <li>Docker</li>
-              <li>A4 print pipeline</li>
-            </ul>
-
-            <p class="prod-h prod-h-2">By the numbers</p>
-            <ul class="prod-figs">
-              <li><span class="prod-fig-n">17</span> <span class="prod-fig-l">Ledger columns mirrored exactly</span></li>
-              <li><span class="prod-fig-n">Zero</span> <span class="prod-fig-l">Retraining needed for staff</span></li>
-            </ul>
-
-            <a class="prod-more" href="#book">
-              <span>Discuss a build like this</span>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="prod-card" data-name="LaunchPaid">
-        <div class="prod-top">
-          <div>
-            <p class="prod-tag"><span class="prod-live">Live</span> SaaS &amp; CRM</p>
-            <h3 class="prod-name">LaunchPaid</h3>
-            <p class="prod-sub">TikTok Shop creator CRM for agencies</p>
-          </div>
-          <p class="prod-no">03</p>
-        </div>
-
-        <p class="prod-desc">
-          Agencies running TikTok Shop influencer campaigns were managing creators, payouts,
-          and communication across a dozen disconnected tools. We built one CRM with
-          role-based dashboards for agencies, creators, and brands, live GMV tracking,
-          automated Discord and SMS messaging, and Stripe or Fanbasis payouts.
-        </p>
-
-        <div class="prod-body">
-          <div>
-            <p class="prod-h">Key features</p>
-            <ul class="prod-mods">
-              <li>
-                <span class="prod-mod-n">Three role-based dashboards</span>
-                <span class="prod-mod-d">Purpose-built experiences for agencies, creators, and brands, each scoped to exactly the workflows and data that role needs.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Live GMV tracking</span>
-                <span class="prod-mod-d">Real-time sales data per creator and product, pulled directly from the TikTok Shop Partner Center API.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Discord &amp; SMS automation</span>
-                <span class="prod-mod-d">Automatic Discord role assignment on campaign events, plus SMS reminders and broadcasts.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Automated, flexible payouts</span>
-                <span class="prod-mod-d">Fixed, GMV-based, pay-per-post, or hybrid payout models processed automatically via Stripe or Fanbasis.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="prod-side">
-            <p class="prod-h">Built on</p>
-            <ul class="prod-chips">
-              <li>Next.js</li>
-              <li>FastAPI</li>
-              <li>TikTok Shop API</li>
-              <li>Discord API</li>
-              <li>Stripe</li>
-              <li>SendBlue</li>
-            </ul>
-
-            <p class="prod-h prod-h-2">By the numbers</p>
-            <ul class="prod-figs">
-              <li><span class="prod-fig-n">100K+</span> <span class="prod-fig-l">Concurrent users by design</span></li>
-              <li><span class="prod-fig-n">&lt;500ms</span> <span class="prod-fig-l">Target API response, 95% of requests</span></li>
-            </ul>
-
-            <a class="prod-more" href="#book">
-              <span>Discuss a build like this</span>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="prod-card" data-name="Scounts">
-        <div class="prod-top">
-          <div>
-            <p class="prod-tag"><span class="prod-live">Live</span> FinTech mobile app</p>
-            <h3 class="prod-name">Scounts</h3>
-            <p class="prod-sub">Digital tax filing for Pakistani taxpayers</p>
-          </div>
-          <p class="prod-no">04</p>
-        </div>
-
-        <p class="prod-desc">
-          Filing income tax in Pakistan meant navigating a confusing FBR portal alone, or
-          paying a lawyer for something that should be simple. We built a guided mobile app
-          for income tax filing, NTN registration, and real-time salary tax calculation,
-          backed by live FBR data and licensed consultants.
-        </p>
-
-        <div class="prod-body">
-          <div>
-            <p class="prod-h">Key features</p>
-            <ul class="prod-mods">
-              <li>
-                <span class="prod-mod-n">Guided return filing</span>
-                <span class="prod-mod-d">A step-by-step wizard collects income, deductions, and declarations, then hands off securely to a consultant for FBR submission.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">NTN registration assistance</span>
-                <span class="prod-mod-d">Users submit identity and business details in-app; consultants complete registration with the FBR on their behalf.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Real-time salary tax calculator</span>
-                <span class="prod-mod-d">Applies current FBR slabs to salary, allowances, and deductions for an instant annual and monthly liability breakdown.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">End-to-end encrypted data</span>
-                <span class="prod-mod-d">Financial data encrypted in transit and at rest, used solely for the user's own filing, never shared with third parties.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="prod-side">
-            <p class="prod-h">Built on</p>
-            <ul class="prod-chips">
-              <li>Flutter</li>
-              <li>Firebase</li>
-              <li>FBR API</li>
-              <li>PDF Export</li>
-              <li>E2E Encryption</li>
-            </ul>
-
-            <p class="prod-h prod-h-2">By the numbers</p>
-            <ul class="prod-figs">
-              <li><span class="prod-fig-n">500+</span> <span class="prod-fig-l">Installs on Google Play</span></li>
-              <li><span class="prod-fig-n">2023</span> <span class="prod-fig-l">Live and maintained since</span></li>
-            </ul>
-
-            <a class="prod-more" href="#book">
-              <span>Discuss a build like this</span>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="prod-card" data-name="Revenue Express">
-        <div class="prod-top">
-          <div>
-            <p class="prod-tag"><span class="prod-live">Live</span> Web platform</p>
-            <h3 class="prod-name">Revenue Express</h3>
-            <p class="prod-sub">Marketing site, SEO blog, and internal command centre</p>
-          </div>
-          <p class="prod-no">05</p>
-        </div>
-
-        <p class="prod-desc">
-          A performance marketing agency's contact form was silently discarding every lead,
-          with zero visibility into what was working on their site. We shipped one Next.js
-          application running the marketing site, an SEO-optimised blog, and an internal
-          command centre with first-party analytics and a full lead pipeline.
-        </p>
-
-        <div class="prod-body">
-          <div>
-            <p class="prod-h">Key features</p>
-            <ul class="prod-mods">
-              <li>
-                <span class="prod-mod-n">First-party analytics, no cookie banner</span>
-                <span class="prod-mod-d">A 2KB tracking script records anonymous visitor and session behaviour, pre-aggregated in real time so dashboards stay fast at scale.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Contact form to won/lost pipeline</span>
-                <span class="prod-mod-d">Every lead carries its visit context — arrival source, time on page, scroll depth — so the team knows who to call first.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">SEO-engineered blog</span>
-                <span class="prod-mod-d">Server-rendered Markdown posts with canonical URLs, structured data, and an auto-updating sitemap, on the same domain as the site.</span>
-              </li>
-              <li>
-                <span class="prod-mod-n">Hardened internal access</span>
-                <span class="prod-mod-d">No public signup; hashed passwords, server-side sessions, and instant revocation the moment a teammate is deactivated.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="prod-side">
-            <p class="prod-h">Built on</p>
-            <ul class="prod-chips">
-              <li>Next.js</li>
-              <li>PostgreSQL</li>
-              <li>Server Components</li>
-              <li>Vercel</li>
-              <li>bcrypt</li>
-            </ul>
-
-            <p class="prod-h prod-h-2">By the numbers</p>
-            <ul class="prod-figs">
-              <li><span class="prod-fig-n">0</span> <span class="prod-fig-l">Leads lost — every submission tracked</span></li>
-              <li><span class="prod-fig-n">1 app</span> <span class="prod-fig-l">Site, blog, and portal in one deploy</span></li>
-            </ul>
-
-            <a class="prod-more" href="#book">
-              <span>Discuss a build like this</span>
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
-
+      </div>
     </div>
-  </div>
 
-  <div class="shell prod-controls">
-    <div class="prod-dots" id="prod-dots" role="tablist" aria-label="Choose a case study"></div>
-    <div class="prod-arrows">
-      <button class="prod-arrow" type="button" data-dir="-1" aria-label="Previous case study">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-      </button>
-      <button class="prod-arrow" type="button" data-dir="1" aria-label="Next case study">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </button>
+    <div class="shell rail-controls">
+      <div class="rail-dots" data-rail-dots role="tablist" aria-label="Choose a project"></div>
+      <div class="rail-arrows">
+        <button class="rail-arrow" type="button" data-rail-arrow data-dir="-1" aria-label="Previous project">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        </button>
+        <button class="rail-arrow" type="button" data-rail-arrow data-dir="1" aria-label="Next project">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -1204,7 +1109,8 @@
         <div>
           <p class="foot-h">Work</p>
           <a href="#services">Services</a>
-          <a href="#product">Case studies</a>
+          <a href="#product">Products</a>
+          <a href="#projects">Projects</a>
           <a href="#cost">The problem</a>
         </div>
         <div>
@@ -1226,7 +1132,7 @@
 <script src="js/hero-waves.js"></script>
 <script src="js/decisions.js"></script>
 <script src="js/services.js"></script>
-<script src="js/products.js"></script>
+<script src="js/rail.js"></script>
 <script src="js/quote.js"></script>
 <script src="js/gear.js"></script>
 <script src="js/main.js"></script>

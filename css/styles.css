@@ -1253,176 +1253,445 @@ img { display: block; max-width: 100%; }
 }
 
 /* ==========================================================================
-   Products — a swipeable rail of our own platforms
+   Clients — a logo row that never stops moving
+
+   The track carries the list twice and slides exactly -50%. At that offset the
+   second copy sits pixel-for-pixel where the first began, so the loop restarts
+   invisibly: no seam, no snap back. Duration scales with the list, not with
+   the viewport, so the logos travel at the same speed on every screen.
    ========================================================================== */
-.prod {
-  padding: clamp(5rem, 10vw, 8rem) 0;
+.marq {
+  padding-block: clamp(2.75rem, 5vw, 4.25rem);
   background: var(--bg);
   border-top: 1px solid oklch(0.30 0.018 250 / .45);
+  border-bottom: 1px solid oklch(0.30 0.018 250 / .45);
 }
 
-/* full-bleed rail, but the first card lines up with the shell */
-.prod-railwrap { overflow: hidden; }
-.prod-rail {
-  position: relative;
+.marq-h {
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* The viewport for the track. The mask dissolves both ends into the page so
+   logos arrive and leave instead of being chopped off at a hard edge. */
+.marq-view {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+
+.marq-track {
   display: flex;
-  gap: clamp(1rem, 2vw, 1.75rem);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  /* scroll-padding must match padding-inline, or mandatory snap pulls card
-     one flush against the container edge and eats the gutter that lines it
-     up with the page shell */
-  --rail-pad: max(1.25rem, calc((100% - var(--shell)) / 2 + 2rem));
-  padding-inline: var(--rail-pad);
-  scroll-padding-inline-start: var(--rail-pad);
-  padding-block: .35rem 1.5rem;
-  scrollbar-width: none;
-  cursor: grab;
+  width: max-content;
+  animation: marq-slide 42s linear infinite;
 }
-.prod-rail::-webkit-scrollbar { display: none; }
-.prod-rail:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
-/* snapping fights a drag in progress, so it is switched off for the duration */
-.prod-rail.is-drag { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+/* Hovering pauses it, so a logo can actually be read. */
+.marq-view:hover .marq-track { animation-play-state: paused; }
 
-.prod-card {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: min(90vw, 60rem);
-  padding: clamp(1.5rem, 3vw, 2.6rem);
+@keyframes marq-slide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marq-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  margin: 0;
+  padding: 0 clamp(1.25rem, 2.5vw, 2.25rem) 0 0;
+  list-style: none;
+  flex: none;
+}
+
+.marq-item {
+  display: grid;
+  place-items: center;
+  height: 3rem;
+  padding-inline: .25rem;
+  flex: none;
+}
+
+/* Real logo files, once they land in assets/clients/: normalised to one
+   optical height, greyed back to the page's own ink, and lit on hover. */
+.marq-item img {
+  height: 100%;
+  width: auto;
+  max-width: 11rem;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.7);
+  opacity: .55;
+  transition: opacity .3s, filter .3s;
+}
+.marq-item:hover img { opacity: 1; filter: none; }
+
+/* The typographic stand-in used until a client's real mark is supplied. */
+.marq-word {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--muted-2);
+  transition: color .3s, text-shadow .3s;
+}
+.marq-item:hover .marq-word {
+  color: var(--fg);
+  text-shadow: var(--glow-s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Do not animate — but do not clip the list to one screen either. Let it
+     wrap and sit still, so every client is still readable. */
+  .marq-track { animation: none; width: 100%; flex-wrap: wrap; }
+  .marq-list:last-child { display: none; }
+  .marq-list { flex-wrap: wrap; gap: 1.75rem 3rem; }
+  .marq-view { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ==========================================================================
+   Products — the platform Orcane owns and operates
+   ========================================================================== */
+.prd {
+  padding-block: clamp(4.5rem, 9vw, 8.5rem);
+  background: var(--bg);
+}
+
+.prd-card {
+  position: relative;
+  padding: clamp(1.6rem, 3.5vw, 3rem);
   border-radius: var(--radius);
-  border: 1px solid oklch(0.30 0.018 250 / .75);
+  border: 1px solid oklch(0.30 0.018 250 / .8);
   background: oklch(0.163 0.015 250);
+  overflow: hidden;
+}
+/* the accent hairline along the top edge marks this as the owned product */
+.prd-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), oklch(0.76 0.16 226 / 0) 70%);
 }
 
-.prod-top {
+.prd-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-bottom: 1.4rem;
-  border-bottom: 1px solid oklch(0.30 0.018 250 / .6);
 }
-.prod-tag {
+
+.prd-tag {
   display: flex;
   align-items: center;
   gap: .6rem;
-  margin-bottom: .7rem;
-  font-family: var(--font-mono);
-  font-size: .66rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-.prod-live, .prod-wip {
-  padding: .2rem .5rem;
-  border-radius: 4px;
-  font-size: .62rem;
-  letter-spacing: .12em;
-}
-.prod-live { background: oklch(0.76 0.16 226 / .18); color: var(--accent-hi); }
-.prod-wip  { background: oklch(0.30 0.018 250 / .8); color: var(--muted); }
-
-.prod-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-}
-.prod-sub { margin-top: .5rem; font-size: .95rem; color: var(--muted); }
-.prod-no {
-  flex: none;
-  font-family: var(--font-mono);
-  font-size: .78rem;
-  color: var(--muted-2);
-}
-
-.prod-desc {
-  max-width: 44rem;
-  margin: 1.4rem 0 2rem;
-  font-size: clamp(.93rem, 1.2vw, 1.01rem);
-  line-height: 1.66;
-  color: var(--muted);
-}
-
-.prod-body { display: grid; gap: clamp(1.75rem, 3vw, 2.75rem); }
-@media (min-width: 860px) {
-  .prod-body { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
-}
-
-.prod-h {
-  margin-bottom: 1rem;
-  font-family: var(--font-mono);
-  font-size: .66rem;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-.prod-mods { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.05rem; }
-.prod-mods li { padding-left: 1rem; border-left: 1px solid oklch(0.30 0.018 250 / .8); }
-.prod-mod-n { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
-.prod-mod-d { display: block; font-size: .875rem; line-height: 1.6; color: var(--muted); }
-
-.prod-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
-.prod-chips li {
-  padding: .38rem .7rem;
-  border-radius: 999px;
-  border: 1px solid oklch(0.30 0.018 250 / .9);
+  margin-bottom: .9rem;
   font-family: var(--font-mono);
   font-size: .68rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.prd-live {
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  background: oklch(0.76 0.16 226 / .16);
+  border: 1px solid oklch(0.76 0.16 226 / .45);
+  color: var(--accent-hi);
+  letter-spacing: .1em;
+}
+
+.prd-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+.prd-sub {
+  margin-top: .5rem;
+  font-size: clamp(.95rem, 1.3vw, 1.06rem);
+  color: var(--muted);
+}
+.prd-no {
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  color: var(--muted-2);
+}
+
+.prd-desc {
+  max-width: 46rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+  border-top: 1px solid oklch(0.30 0.018 250 / .65);
+  font-size: clamp(.95rem, 1.25vw, 1.04rem);
+  line-height: 1.7;
   color: var(--muted);
 }
 
-/* sits in the side column, in the slot the pricing block used to occupy */
-.prod-more {
+.prd-body {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+@media (min-width: 940px) {
+  .prd-body { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+}
+
+.prd-h {
+  margin-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.prd-h-2 { margin-top: 1.9rem; }
+
+.prd-mods { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.15rem; }
+.prd-mods li {
+  padding-left: 1rem;
+  border-left: 1px solid oklch(0.30 0.018 250 / .9);
+  transition: border-color .3s;
+}
+.prd-mods li:hover { border-color: var(--accent); }
+.prd-mod-n { display: block; margin-bottom: .3rem; font-weight: 600; font-size: .96rem; }
+.prd-mod-d { display: block; font-size: .875rem; line-height: 1.62; color: var(--muted); }
+
+.prd-notes { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+.prd-notes li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .7rem;
+  align-items: baseline;
+  font-size: .85rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.prd-notes li::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.prd-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+.prd-chips li {
+  padding: .34rem .66rem;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  background: oklch(0.135 0.014 250);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  color: var(--muted-2);
+}
+
+.prd-figs {
+  list-style: none;
+  margin: 1.9rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.prd-figs li { display: grid; gap: .15rem; padding-left: .8rem; border-left: 1px solid oklch(0.76 0.16 226 / .45); }
+.prd-fig-n {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  color: var(--accent-hi);
+}
+.prd-fig-l {
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.prd-cta { margin-top: 1.9rem; }
+
+/* ==========================================================================
+   Projects — compact client-work cards on a scroll-snap rail
+
+   The rail itself is native CSS scroll-snap, so touch, trackpad, keyboard and
+   screen readers all behave correctly without help. The script only adds the
+   dots, the arrows and mouse-drag.
+   ========================================================================== */
+.proj {
+  padding-block: clamp(4.5rem, 9vw, 8.5rem) clamp(3.5rem, 7vw, 6rem);
+  background: oklch(0.115 0.012 250);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+
+.rail-wrap { overflow: hidden; }
+
+.rail-track {
+  /* the inset that lines card one up with the page shell */
+  --rail-inset: max(1.25rem, calc((100vw - var(--shell)) / 2 + 2rem));
+
+  display: flex;
+  gap: clamp(.9rem, 1.6vw, 1.25rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-inline: var(--rail-inset);
+  padding-block: .5rem 1.5rem;
+  /* Without this the snapport starts at the scrollport edge, so snapping to
+     card one parks it flush against the viewport and the inset above is
+     scrolled straight past. Pulling the snapport in by the same amount keeps
+     card one aligned with the heading. */
+  scroll-padding-inline: var(--rail-inset);
+}
+.rail-track::-webkit-scrollbar { display: none; }
+.rail-track.is-drag { scroll-behavior: auto; cursor: grabbing; scroll-snap-type: none; }
+@media (prefers-reduced-motion: reduce) { .rail-track { scroll-behavior: auto; } }
+
+.proj-card {
+  scroll-snap-align: start;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: min(21rem, 82vw);
+  padding: clamp(1.35rem, 2.2vw, 1.7rem);
+  border-radius: var(--radius);
+  border: 1px solid oklch(0.30 0.018 250 / .8);
+  background: oklch(0.163 0.015 250);
+  transition: border-color .35s, background-color .35s, transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .45s;
+}
+.proj-card:hover,
+.proj-card:focus-within {
+  border-color: oklch(0.76 0.16 226 / .55);
+  background: oklch(0.185 0.017 250);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px oklch(0.10 0.02 250 / .55);
+}
+
+.proj-sector {
+  margin-bottom: .8rem;
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.proj-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.proj-desc {
+  margin-top: .7rem;
+  font-size: .875rem;
+  line-height: 1.62;
+  color: var(--muted);
+}
+
+.proj-chips {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+.proj-chips li {
+  padding: .28rem .55rem;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  background: oklch(0.135 0.014 250);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  color: var(--muted-2);
+}
+
+/* pushed to the foot of the card so every button lines up across the rail */
+.proj-fig {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.proj-fig-n {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--accent-hi);
+}
+
+.proj-btn {
   display: inline-flex;
   align-items: center;
-  gap: 1.9rem;
-  margin-top: 1.9rem;
-  padding: .85rem 1.2rem;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: .7rem 1rem;
   border-radius: 999px;
-  border: 1px solid oklch(0.30 0.018 250);
-  font-size: .875rem;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  background: oklch(0.135 0.014 250);
+  font-size: .8rem;
   font-weight: 600;
   color: var(--fg);
-  transition: background-color .25s, border-color .25s, box-shadow .35s;
+  transition: background-color .3s, color .3s, border-color .3s, box-shadow .35s;
 }
-.prod-more:hover {
-  border-color: var(--accent);
-  background: oklch(0.215 0.018 250);
+.proj-btn .ico { width: .95rem; height: .95rem; transition: transform .3s cubic-bezier(.2,.9,.3,1); }
+.proj-btn:hover {
+  background: var(--fg);
+  color: #06070B;
+  border-color: var(--fg);
   box-shadow: var(--glow-s);
 }
-.prod-more .ico { transition: transform .3s cubic-bezier(.2,.9,.3,1); }
-.prod-more:hover .ico { transform: translateX(5px); }
+.proj-btn:hover .ico { transform: translateX(4px); }
 
-.prod-controls {
+/* ---- rail controls, shared by any [data-rail] block ---- */
+.rail-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-top: 1.25rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
 }
-.prod-dots { display: flex; gap: .5rem; }
-.prod-dot {
-  width: 30px; height: 4px;
-  border-radius: 2px;
-  background: oklch(0.30 0.018 250);
-  transition: background-color .3s, width .3s;
-}
-.prod-dot.is-on { width: 52px; background: var(--accent); }
 
-.prod-arrows { display: flex; gap: .6rem; }
-.prod-arrow {
+.rail-dots { display: flex; gap: .5rem; }
+.rail-dot {
+  width: 26px;
+  height: 3px;
+  border-radius: 999px;
+  background: oklch(0.30 0.018 250);
+  transition: background-color .3s, width .35s cubic-bezier(.2,.9,.3,1);
+}
+.rail-dot.is-on { width: 46px; background: var(--accent); }
+
+.rail-arrows { display: flex; gap: .6rem; }
+.rail-arrow {
   display: grid;
   place-items: center;
-  width: 44px; height: 44px;
-  border-radius: 999px;
-  border: 1px solid oklch(0.30 0.018 250);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
   color: var(--fg);
-  transition: background-color .25s, border-color .25s, opacity .25s;
+  transition: background-color .3s, color .3s, border-color .3s, box-shadow .35s, opacity .3s;
 }
-.prod-arrow:hover:not(:disabled) { background: oklch(0.215 0.018 250); border-color: var(--accent); }
-.prod-arrow:disabled { opacity: .3; cursor: default; }
+.rail-arrow:hover:not(:disabled) {
+  background: var(--fg);
+  color: #06070B;
+  border-color: var(--fg);
+  box-shadow: var(--glow-s);
+}
+.rail-arrow:disabled { opacity: .3; cursor: default; }
 
 /* ==========================================================================
    Process
@@ -1803,35 +2072,9 @@ img { display: block; max-width: 100%; }
 .gear-field { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 
 /* ==========================================================================
-   Additions — case-study figures, the "every project includes" block, and a
-   contact grid that now carries four links instead of three.
+   Additions — the "every project includes" block, and a contact grid that
+   now carries four links instead of three.
    ========================================================================== */
-
-/* ---- case-study figures inside the product rail ---- */
-.prod-h-2 { margin-top: 1.6rem; }
-
-.prod-figs { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
-.prod-figs li {
-  display: grid;
-  gap: .15rem;
-  padding-left: .8rem;
-  border-left: 1px solid oklch(0.76 0.16 226 / .45);
-}
-.prod-fig-n {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
-  color: var(--accent-hi);
-}
-.prod-fig-l {
-  font-family: var(--font-mono);
-  font-size: .66rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  line-height: 1.45;
-  color: var(--muted-2);
-}
 
 /* ---- "every project comes with" ---- */
 .proc-incl {
