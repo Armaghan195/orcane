@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orcane — Software Built Around Your Business</title>
+<meta name="description" content="Orcane is a software house building custom software, web and mobile apps, AI and automation, ERP and POS systems, and cloud infrastructure — designed around how your business actually runs." />
+<meta name="theme-color" content="#0B0F16" />
+<link rel="icon" href="assets/orcane-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#hero-main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="site-header">
+  <div class="shell header-inner">
+
+    <!-- the emblem IS the O — wordmark reads as one lockup -->
+    <a class="brand" href="#top" aria-label="Orcane — home">
+      <span class="brand-o" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <path class="brand-ring" d="M 39.18 16.71 A 35 35 0 1 1 15.34 54.87" fill="none" stroke="currentColor"
+                stroke-width="6.6" stroke-linecap="round"/>
+          <path class="brand-fin" d="M43 27 C30 28 21 36 16 54 C25 40 33 33 43 27 Z"/>
+        </svg>
+      </span>
+      <span class="brand-word" aria-hidden="true">
+        <span class="bl">r</span><span class="bl">c</span><span class="bl">a</span><span class="bl">n</span><span class="bl">e</span>
+      </span>
+    </a>
+
+    <nav class="header-nav" aria-label="Primary">
+      <a class="nav-link" href="#why"><span>Why Orcane</span></a>
+      <a class="nav-link" href="#services"><span>Services</span></a>
+      <a class="nav-link" href="#product"><span>Work</span></a>
+      <a class="nav-link" href="#process"><span>Process</span></a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="link-quiet" href="mailto:hello@orcane.io">Contact</a>
+      <a class="btn btn-solid" data-magnetic href="#book">Get a Proposal</a>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ---- mobile overlay menu ---- -->
+<div class="mobile-nav" id="mobile-nav" hidden>
+  <nav class="mobile-nav-inner" aria-label="Mobile">
+    <a href="#why"><span class="mi">01</span> Why Orcane</a>
+    <a href="#services"><span class="mi">02</span> Services</a>
+    <a href="#product"><span class="mi">03</span> Work</a>
+    <a href="#process"><span class="mi">04</span> Process</a>
+    <a href="#stack"><span class="mi">05</span> Tech Stack</a>
+    <div class="mobile-nav-foot">
+      <a class="btn btn-solid btn-block" href="#book">Get a Proposal</a>
+      <a class="link-quiet" href="mailto:hello@orcane.io">hello@orcane.io</a>
+    </div>
+  </nav>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero-main">
+
+  <div class="hero-bg">
+    <canvas id="hero-waves" class="hero-waves" aria-hidden="true"></canvas>
+    <div class="hero-scan" aria-hidden="true"></div>
+    <div class="hero-glow" id="hero-glow" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+  </div>
+
+  <div class="shell hero-shell">
+
+    <h1 class="hero-title" id="hero-title"
+        data-l1="Software built around"
+        data-l2="your business."
+        data-accent="your business.">Software built around your business.</h1>
+
+    <p class="hero-sub reveal" style="--d:220ms">
+      Not the other way around. Orcane is a software house that designs, builds, and
+      supports custom software, web and mobile apps, AI systems, and cloud
+      infrastructure — engineered around your exact workflow, vocabulary, and scale.
+    </p>
+
+    <div class="hero-actions reveal" style="--d:340ms">
+      <a class="btn btn-solid btn-lg" data-magnetic href="#book">
+        Get a free proposal
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost btn-lg" href="#product">
+        See our work
+        <svg class="ico ico-slide" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="stat-bar reveal" style="--d:460ms">
+      <div class="stat">
+        <p class="stat-line">
+          <span class="stat-num" data-count="12">12</span>
+          <span class="stat-txt">service lines under one roof.</span>
+        </p>
+        <p class="stat-tag">Full-stack</p>
+      </div>
+      <div class="stat">
+        <p class="stat-line">
+          <span class="stat-num" data-count="7">7</span>
+          <span class="stat-txt">products shipped end to end.</span>
+        </p>
+        <p class="stat-tag">Proof of work</p>
+      </div>
+      <div class="stat">
+        <p class="stat-line">
+          <span class="stat-num" data-count="5">5</span>
+          <span class="stat-txt">stage process on every build.</span>
+        </p>
+        <p class="stat-tag">Delivery</p>
+      </div>
+      <div class="stat">
+        <p class="stat-line">
+          <span class="stat-num" data-count="100" data-suffix="%">100%</span>
+          <span class="stat-txt">source code and docs, yours.</span>
+        </p>
+        <p class="stat-tag">Ownership</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ THE PROBLEM — what generic software quietly costs ============ -->
+<section class="cost" id="cost">
+  <div class="shell cost-shell">
+
+    <div class="cost-copy">
+      <p class="cost-eyebrow">The problem</p>
+      <h2 class="cost-title">Generic software wasn't built for you. You pay for that every week.</h2>
+      <p class="cost-lede">
+        Off-the-shelf tools force your team to change how they already work. You pay a
+        licence for a hundred features you will never touch, while the one thing your
+        business actually depends on is the thing the platform cannot do.
+      </p>
+      <p class="cost-lede">
+        So the gaps get filled by hand. Spreadsheets, re-keyed data, WhatsApp approvals,
+        month-end reconciliation done by eye. None of it appears on an invoice, and all of
+        it comes out of your team's week.
+      </p>
+      <p class="cost-answer">
+        <span class="cost-answer-mark" aria-hidden="true">&rarr;</span>
+        <span>Orcane builds the system around your workflow instead — your terminology,
+        your process, your scale. Nobody retrains, because nothing changes but the
+        manual work disappearing.</span>
+      </p>
+    </div>
+
+    <figure class="cost-panel">
+      <figcaption class="cost-panel-head">Where the week goes</figcaption>
+
+      <div class="cost-scroll" tabindex="0" role="group" aria-label="Where manual work costs your team time">
+        <ol class="cost-list">
+          <li class="cost-row" style="--i:0">
+            <span class="cost-idx">001</span>
+            <span class="cost-txt">Re-keying the same data into two systems</span>
+            <span class="cost-hrs cost-hrs-max">&#8734; hrs</span>
+          </li>
+          <li class="cost-row" style="--i:1">
+            <span class="cost-idx">002</span>
+            <span class="cost-txt">Month-end reconciliation done by hand</span>
+            <span class="cost-hrs">~12 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:2">
+            <span class="cost-idx">003</span>
+            <span class="cost-txt">Reports rebuilt in spreadsheets every cycle</span>
+            <span class="cost-hrs">~10 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:3">
+            <span class="cost-idx">004</span>
+            <span class="cost-txt">Invoices and documents processed manually</span>
+            <span class="cost-hrs">~9 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:4">
+            <span class="cost-idx">005</span>
+            <span class="cost-txt">Chasing approvals across chat and email</span>
+            <span class="cost-hrs">~7 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:5">
+            <span class="cost-idx">006</span>
+            <span class="cost-txt">Staff translating jargon the software doesn't use</span>
+            <span class="cost-hrs">~6 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:6">
+            <span class="cost-idx">007</span>
+            <span class="cost-txt">Stock and dispatch counted against paper records</span>
+            <span class="cost-hrs">~6 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:7">
+            <span class="cost-idx">008</span>
+            <span class="cost-txt">Licence fees for modules nobody opens</span>
+            <span class="cost-hrs">~5 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:8">
+            <span class="cost-idx">009</span>
+            <span class="cost-txt">Workarounds for the one feature you actually need</span>
+            <span class="cost-hrs">~5 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:9">
+            <span class="cost-idx">010</span>
+            <span class="cost-txt">Maintaining code a freelancer left behind</span>
+            <span class="cost-hrs">~4 hrs</span>
+          </li>
+          <li class="cost-row" style="--i:10">
+            <span class="cost-idx">011</span>
+            <span class="cost-txt">Waiting on a vendor who no longer answers</span>
+            <span class="cost-hrs">~4 hrs</span>
+          </li>
+        </ol>
+
+        <p class="cost-total">
+          <span class="cost-total-label">Estimated time lost:</span>
+          <span class="cost-total-val">~68 hrs per month</span>
+          <span class="cost-total-note">(most of a full-time role)</span>
+        </p>
+      </div>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ WHY US — the decision field ============ -->
+<section class="why" id="why">
+
+  <!-- sticky stage: pinned for the whole scroll of the section -->
+  <div class="why-stage" aria-hidden="true">
+    <canvas id="why-field" class="why-field"></canvas>
+    <div class="why-vignette"></div>
+  </div>
+
+  <div class="shell why-shell">
+
+    <header class="why-head">
+      <h2 class="why-title">
+        <span class="ln">Software should adapt</span>
+        <span class="ln">to the business,</span>
+        <span class="ln">not the other way around.</span>
+      </h2>
+      <p class="why-intro">
+        That principle decides every project we take on. Whether we are digitising a
+        distributor's decades-old ledger or building a white-label SaaS platform from
+        scratch, we start by learning your real vocabulary and real constraints — then
+        engineer around them.
+      </p>
+    </header>
+
+    <ol class="why-list">
+      <li class="why-item" style="--indent:0">
+        <p class="why-num">001 / Full-stack under one roof</p>
+        <p class="why-copy">Backend, frontend, mobile, AI, and infrastructure handled by one accountable team. No stitching together freelancers, no handoffs between vendors, no gaps for a problem to hide in.</p>
+      </li>
+      <li class="why-item" style="--indent:1">
+        <p class="why-num">002 / Built around your business</p>
+        <p class="why-copy">We adopt your exact terminology and workflow from day one. Your team reads its own vocabulary on screen, so there is nothing to translate and nothing to retrain.</p>
+      </li>
+      <li class="why-item" style="--indent:2">
+        <p class="why-num">003 / AI-native engineering</p>
+        <p class="why-copy">Machine learning, LLMs, and automation are core skills here, not a buzzword bolted onto a sales pitch. We ask where automation can remove manual work before we design anything.</p>
+      </li>
+      <li class="why-item" style="--indent:0">
+        <p class="why-num">004 / Direct access to engineers</p>
+        <p class="why-copy">You talk to the people building your product, every time — not a relay of account managers. Weekly check-ins, honest trade-offs, and no surprises at delivery.</p>
+      </li>
+      <li class="why-item" style="--indent:1">
+        <p class="why-num">005 / Engineering discipline</p>
+        <p class="why-copy">Clean architecture, tested code, and documentation are non-negotiable, not optional extras. Every system ships with docs, so you are never locked out of your own product.</p>
+      </li>
+      <li class="why-item" style="--indent:2">
+        <p class="why-num">006 / We don't disappear after launch</p>
+        <p class="why-copy">Launch day is the beginning. Ongoing maintenance, monitoring, and iteration keep the system running as your business grows — with flexible models that scale with you.</p>
+      </li>
+    </ol>
+  </div>
+
+  <a class="why-more" href="#services">
+    <span>See what we build</span>
+    <span class="why-more-plus" aria-hidden="true">+</span>
+  </a>
+</section>
+
+<!-- ============ SERVICES — interactive capability cards ============ -->
+<section class="cap" id="services">
+  <div class="shell">
+
+    <header class="sec-head">
+      <p class="sec-eyebrow">What we build</p>
+      <h2 class="sec-title">One partner for<br>every digital need.</h2>
+      <p class="sec-lede">
+        From a single idea to a fully deployed system, Orcane covers the whole lifecycle —
+        software, web, mobile, AI, data, and infrastructure. Whatever your business needs
+        next, it is already something we build regularly.
+      </p>
+    </header>
+
+    <div class="cap-grid" id="cap-grid">
+
+      <!-- 01 -->
+      <article class="cap-card" style="--i:0">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p1">
+          <span class="cap-idx">01</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m9 8-4 4 4 4"/><path d="m15 8 4 4-4 4"/><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5z"/></svg>
+          </span>
+          <span class="cap-name">Custom Software Development</span>
+          <span class="cap-line">Purpose-built systems designed around how your business actually runs.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p1" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We build bespoke software from the ground up, replacing spreadsheets, generic templates, and disconnected tools with a single system that speaks your business's language.</p>
+            <ul class="cap-points">
+              <li>Requirements discovery &amp; workflow mapping</li>
+              <li>Custom internal tools &amp; business systems</li>
+              <li>Legacy system modernisation &amp; migration</li>
+              <li>API design &amp; third-party integrations</li>
+            </ul>
+            <ul class="cap-chips"><li>Python</li><li>FastAPI</li><li>Django</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>React</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="cap-card" style="--i:1">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p2">
+          <span class="cap-idx">02</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+          </span>
+          <span class="cap-name">Web Development</span>
+          <span class="cap-line">Fast, responsive, SEO-ready websites and web applications.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p2" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">From marketing sites to complex web platforms, we build fast, SEO-friendly, and secure web experiences that work seamlessly across every device.</p>
+            <ul class="cap-points">
+              <li>Corporate &amp; marketing websites</li>
+              <li>Web applications &amp; customer portals</li>
+              <li>E-commerce storefronts</li>
+              <li>Progressive Web Apps (PWA)</li>
+            </ul>
+            <ul class="cap-chips"><li>React</li><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>FastAPI</li><li>Vercel / GCP</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="cap-card" style="--i:2">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p3">
+          <span class="cap-idx">03</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.5 5.6h3"/><path d="M10.8 18.4h2.4"/></svg>
+          </span>
+          <span class="cap-name">Mobile App Development</span>
+          <span class="cap-line">Native-quality iOS and Android apps built for real-world usage.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p3" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We design and develop mobile applications that feel fast and native — customer-facing apps, internal field tools, or white-label multi-tenant platforms.</p>
+            <ul class="cap-points">
+              <li>iOS &amp; Android app development</li>
+              <li>Cross-platform React Native builds</li>
+              <li>White-label &amp; multi-tenant mobile apps</li>
+              <li>App Store / Play Store deployment</li>
+            </ul>
+            <ul class="cap-chips"><li>React Native</li><li>Flutter</li><li>Firebase</li><li>FCM Push</li><li>REST / GraphQL</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="cap-card" style="--i:3">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p4">
+          <span class="cap-idx">04</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.6"/><circle cx="5" cy="6" r="1.9"/><circle cx="19" cy="6" r="1.9"/><circle cx="5" cy="18" r="1.9"/><circle cx="19" cy="18" r="1.9"/><path d="m6.6 7.2 3.6 3.3M17.4 7.2l-3.6 3.3M6.6 16.8l3.6-3.3M17.4 16.8l-3.6-3.3"/></svg>
+          </span>
+          <span class="cap-name">AI &amp; Machine Learning</span>
+          <span class="cap-line">Production-grade AI systems, not proof-of-concept demos.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p4" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We build machine learning pipelines and AI-powered features that solve real business problems — from anomaly detection to forecasting to intelligent document processing.</p>
+            <ul class="cap-points">
+              <li>Predictive modelling &amp; forecasting</li>
+              <li>Anomaly &amp; fraud detection systems</li>
+              <li>Computer vision &amp; OCR pipelines</li>
+              <li>Custom model training &amp; evaluation</li>
+            </ul>
+            <ul class="cap-chips"><li>scikit-learn</li><li>PyTorch</li><li>LangChain</li><li>HuggingFace</li><li>OpenCV</li><li>LSTM / Prophet</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="cap-card" style="--i:4">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p5">
+          <span class="cap-idx">05</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 7h9"/><path d="M4 12h6"/><path d="M4 17h9"/><circle cx="17.5" cy="7" r="2.5"/><circle cx="17.5" cy="17" r="2.5"/><path d="M17.5 9.5v5"/></svg>
+          </span>
+          <span class="cap-name">Business Process Automation</span>
+          <span class="cap-line">Remove the manual, repetitive work from your team's day.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p5" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We identify the repetitive, error-prone parts of your operations and automate them — from invoice processing to report generation to cross-system data syncing.</p>
+            <ul class="cap-points">
+              <li>Workflow &amp; approval automation</li>
+              <li>Document &amp; invoice processing (OCR)</li>
+              <li>Scheduled reporting &amp; data pipelines</li>
+              <li>Cross-platform integrations</li>
+            </ul>
+            <ul class="cap-chips"><li>n8n</li><li>LangGraph</li><li>Python</li><li>Mistral OCR</li><li>Cron &amp; job queues</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="cap-card" style="--i:5">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p6">
+          <span class="cap-idx">06</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5.5 20V9.5l6.5-4 6.5 4V20"/><path d="M9.5 20v-5h5v5"/><path d="M9.5 11h5"/></svg>
+          </span>
+          <span class="cap-name">ERP &amp; POS Systems</span>
+          <span class="cap-line">Enterprise systems built around your exact accounting model.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p6" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We build ERP and point-of-sale systems tailored to specific industries — distribution, retail, construction supply — matching your own ledger formats and terminology exactly.</p>
+            <ul class="cap-points">
+              <li>Custom ledger &amp; khata-style accounting</li>
+              <li>Inventory, dispatch &amp; logistics tracking</li>
+              <li>FBR-compliant POS invoicing</li>
+              <li>Reconciliation engines across portals</li>
+            </ul>
+            <ul class="cap-chips"><li>FastAPI</li><li>PostgreSQL</li><li>React</li><li>FBR POS Integration</li><li>Role-based access</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+      <article class="cap-card" style="--i:6">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p7">
+          <span class="cap-idx">07</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 18a4.2 4.2 0 0 1-.4-8.4A5.6 5.6 0 0 1 17.4 8.6 3.9 3.9 0 0 1 17.5 18z"/><path d="M12 12v6"/><path d="m9.6 15.4 2.4 2.6 2.4-2.6"/></svg>
+          </span>
+          <span class="cap-name">Cloud Infrastructure &amp; DevOps</span>
+          <span class="cap-line">Auto-scaling infrastructure that doesn't fall over under load.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p7" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We design and manage cloud infrastructure so your application scales smoothly, stays available, and is easy for your own team to maintain going forward.</p>
+            <ul class="cap-points">
+              <li>Cloud architecture on GCP / AWS</li>
+              <li>CI/CD pipeline setup</li>
+              <li>Containerisation &amp; orchestration</li>
+              <li>Monitoring, logging &amp; alerting</li>
+            </ul>
+            <ul class="cap-chips"><li>Docker</li><li>GCP Cloud Run</li><li>Firebase</li><li>Terraform</li><li>GitHub Actions</li><li>BigQuery</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 -->
+      <article class="cap-card" style="--i:7">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p8">
+          <span class="cap-idx">08</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1.6"/><rect x="13" y="4" width="8" height="16" rx="1.6"/><rect x="3" y="13" width="8" height="7" rx="1.6"/></svg>
+          </span>
+          <span class="cap-name">UI/UX Design &amp; Product Strategy</span>
+          <span class="cap-line">Interfaces as easy to use as they are good to look at.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p8" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">Before we write code, we design. We map user journeys, wireframe key flows, and build clickable prototypes so the product is validated before development begins.</p>
+            <ul class="cap-points">
+              <li>User research &amp; journey mapping</li>
+              <li>Wireframing &amp; interactive prototypes</li>
+              <li>Design systems &amp; UI kits</li>
+              <li>Usability testing &amp; iteration</li>
+            </ul>
+            <ul class="cap-chips"><li>Figma</li><li>Design Systems</li><li>Prototyping</li><li>Heuristic Evaluation</li><li>User Testing</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 -->
+      <article class="cap-card" style="--i:8">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p9">
+          <span class="cap-idx">09</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 20V13"/><path d="M9.3 20V7.5"/><path d="M14.7 20v-9"/><path d="M20 20V4.5"/></svg>
+          </span>
+          <span class="cap-name">Data Engineering &amp; Analytics</span>
+          <span class="cap-line">Turn scattered data into dashboards you can actually trust.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p9" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We build the pipelines and dashboards that let owners see exactly what is happening — daily sales trends, stock reconciliation, marketing performance, all in real time.</p>
+            <ul class="cap-points">
+              <li>Data pipeline design &amp; ETL</li>
+              <li>Business intelligence dashboards</li>
+              <li>Reporting automation, daily or monthly</li>
+              <li>Data warehousing &amp; analytics infra</li>
+            </ul>
+            <ul class="cap-chips"><li>PostgreSQL</li><li>BigQuery</li><li>Pandas</li><li>Python</li><li>SQL</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="cap-card" style="--i:9">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p10">
+          <span class="cap-idx">10</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 5.6A1.6 1.6 0 0 1 5.6 4h12.8A1.6 1.6 0 0 1 20 5.6v8.8a1.6 1.6 0 0 1-1.6 1.6H9l-5 4z"/><path d="M8.5 10h.01"/><path d="M12 10h.01"/><path d="M15.5 10h.01"/></svg>
+          </span>
+          <span class="cap-name">Chatbots, LLMs &amp; Conversational AI</span>
+          <span class="cap-line">Assistants that answer from your data, not from guesswork.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p10" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We build retrieval-augmented chatbots and AI assistants grounded in your own documents and data, reducing hallucination and making AI answers trustworthy enough to act on.</p>
+            <ul class="cap-points">
+              <li>Retrieval-Augmented Generation pipelines</li>
+              <li>Support &amp; internal knowledge bots</li>
+              <li>LLM-powered narration &amp; reporting</li>
+              <li>Local or hosted LLM deployment</li>
+            </ul>
+            <ul class="cap-chips"><li>LangChain</li><li>HuggingFace</li><li>Groq / Llama</li><li>Ollama</li><li>Vector Search</li><li>RAGAS</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="cap-card" style="--i:10">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p11">
+          <span class="cap-idx">11</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.2 19.5 6v5.4c0 4.4-3 7.6-7.5 9.4-4.5-1.8-7.5-5-7.5-9.4V6z"/><path d="m9.2 12 2 2.1 3.6-4"/></svg>
+          </span>
+          <span class="cap-name">Cybersecurity &amp; Quality Assurance</span>
+          <span class="cap-line">Tested, monitored, and hardened before it ever ships.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p11" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">We build security and quality checks into the development process itself — authentication, data isolation, and access control from day one, not patched on later.</p>
+            <ul class="cap-points">
+              <li>Network &amp; application security assessments</li>
+              <li>Automated testing &amp; CI test suites</li>
+              <li>Anomaly-based intrusion detection</li>
+              <li>Code quality &amp; performance audits</li>
+            </ul>
+            <ul class="cap-chips"><li>Isolation Forest</li><li>Nmap</li><li>Automated QA suites</li><li>Static Analysis</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="cap-card" style="--i:11">
+        <button class="cap-face" type="button" aria-expanded="false" aria-controls="cap-p12">
+          <span class="cap-idx">12</span>
+          <span class="cap-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4.5 17.5 10 12l3.2 3.2L20 8"/><path d="M15.4 8H20v4.6"/><path d="M4 20.5h16"/></svg>
+          </span>
+          <span class="cap-name">Digital Transformation Consulting</span>
+          <span class="cap-line">A technical partner for moving off paper and spreadsheets.</span>
+          <span class="cap-open" aria-hidden="true"></span>
+        </button>
+        <div class="cap-panel" id="cap-p12" role="region">
+          <div class="cap-panel-in">
+            <p class="cap-desc">For businesses still running on manual ledgers, WhatsApp orders, or fragmented spreadsheets, we plan and execute the roadmap to a fully digitised operation.</p>
+            <ul class="cap-points">
+              <li>Digital readiness &amp; workflow audits</li>
+              <li>Phased digitisation roadmaps</li>
+              <li>Change management &amp; staff onboarding</li>
+              <li>Vendor &amp; tooling recommendations</li>
+            </ul>
+            <ul class="cap-chips"><li>Process Mapping</li><li>BPMN</li><li>Stakeholder Workshops</li><li>Phased Rollout</li></ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ongoing support: the thirteenth thing, and it never ends -->
+    <div class="cap-foot">
+      <div class="cap-foot-copy">
+        <p class="cap-foot-h">Ongoing</p>
+        <p class="cap-foot-t">Maintenance &amp; managed support</p>
+        <p class="cap-foot-p">
+          Launch day is the beginning, not the end. Every Orcane engagement can continue
+          into ongoing support so your system keeps running smoothly as your business grows.
+        </p>
+      </div>
+      <ul class="cap-foot-list">
+        <li><span>Reactive support</span> Bug fixes, incident response, and email or chat support within agreed SLAs.</li>
+        <li><span>Proactive maintenance</span> Scheduled updates, dependency upgrades, backups, and performance tuning.</li>
+        <li><span>Continuous improvement</span> Regular feature additions, new integrations, and iteration based on usage data.</li>
+      </ul>
+      <a class="cap-foot-cta btn btn-solid" data-magnetic href="#book">
+        Get a free proposal
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ WORK — shipped case studies on a swipeable rail ============ -->
+<section class="prod" id="product">
+
+  <div class="shell">
+    <header class="sec-head">
+      <p class="sec-eyebrow">Proof, not promises</p>
+      <h2 class="sec-title">Real work we've shipped,<br>end to end.</h2>
+      <p class="sec-lede">
+        Live products across FinTech, SaaS, ERP, and marketing — architected, built,
+        deployed, and maintained by our team. Every one of them is a system somebody's
+        business runs on today.
+      </p>
+    </header>
+  </div>
+
+  <div class="prod-railwrap">
+    <div class="prod-rail" id="prod-rail" tabindex="0" role="group" aria-label="Orcane case studies — scroll or swipe">
+
+      <article class="prod-card" data-name="Restaurant SaaS">
+        <div class="prod-top">
+          <div>
+            <p class="prod-tag"><span class="prod-live">Live</span> Multi-tenant SaaS</p>
+            <h3 class="prod-name">Restaurant SaaS Platform</h3>
+            <p class="prod-sub">White-label ordering, one unified backend</p>
+          </div>
+          <p class="prod-no">01</p>
+        </div>
+
+        <p class="prod-desc">
+          A growing restaurant brand needed its own branded ordering app without building or
+          operating any backend infrastructure. We shipped a white-label platform: a dedicated
+          customer app per brand, a shared restaurant admin dashboard, and a super-admin
+          console for platform-wide control — all on one backend.
+        </p>
+
+        <div class="prod-body">
+          <div>
+            <p class="prod-h">Key features</p>
+            <ul class="prod-mods">
+              <li>
+                <span class="prod-mod-n">White-label customer app</span>
+                <span class="prod-mod-d">A branded app per restaurant with menu browsing, customisation, and live order tracking via FCM push notifications.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Generic restaurant admin portal</span>
+                <span class="prod-mod-d">One shared admin app for every tenant, with dynamic tenant login, order dashboards, and menu management.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Super admin console</span>
+                <span class="prod-mod-d">Platform-wide tenant onboarding, billing, health monitoring, and version control for the operating company.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Hybrid billing engine</span>
+                <span class="prod-mod-d">A 3–5% commission or a flat monthly fee for a set order quota, auto-switching the moment usage crosses the line.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="prod-side">
+            <p class="prod-h">Built on</p>
+            <ul class="prod-chips">
+              <li>GCP Cloud Run</li>
+              <li>Firestore</li>
+              <li>Firebase Auth</li>
+              <li>Flutter</li>
+              <li>React Native</li>
+              <li>BigQuery</li>
+              <li>Pub/Sub</li>
+            </ul>
+
+            <p class="prod-h prod-h-2">By the numbers</p>
+            <ul class="prod-figs">
+              <li><span class="prod-fig-n">99.9%</span> <span class="prod-fig-l">Uptime SLA target</span></li>
+              <li><span class="prod-fig-n">&lt;120ms</span> <span class="prod-fig-l">Target API response, P95</span></li>
+            </ul>
+
+            <a class="prod-more" href="#book">
+              <span>Discuss a build like this</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-name="Meeran Traders ERP">
+        <div class="prod-top">
+          <div>
+            <p class="prod-tag"><span class="prod-live">Live</span> ERP &amp; POS</p>
+            <h3 class="prod-name">Meeran Traders ERP</h3>
+            <p class="prod-sub">Custom ERP for a building materials distributor</p>
+          </div>
+          <p class="prod-no">02</p>
+        </div>
+
+        <p class="prod-desc">
+          Decades of ledgers on paper and disconnected spreadsheets, with no way to reconcile
+          dispatch against billing. We built a dual-portal ERP — a daily dispatch view and an
+          asynchronous finance and khata view — automatically reconciled against each other,
+          using the client's exact vocabulary throughout.
+        </p>
+
+        <div class="prod-body">
+          <div>
+            <p class="prod-h">Key features</p>
+            <ul class="prod-mods">
+              <li>
+                <span class="prod-mod-n">Dual-portal architecture</span>
+                <span class="prod-mod-d">A daily godown and dispatch portal for physical stock movement, and an async finance portal for billing, sharing one database.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Automated reconciliation engine</span>
+                <span class="prod-mod-d">Continuously cross-matches physical dispatch records against financial invoices across builders, drivers, and stock.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Dual pricing &amp; tax layers</span>
+                <span class="prod-mod-d">An FBR-compliant invoicing layer alongside an internal true P&amp;L layer, tracking real margins and carriage costs.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Client-exact terminology</span>
+                <span class="prod-mod-d">Every label — khata, MDA, godown — mirrors the client's own business vocabulary, so nobody needed retraining.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="prod-side">
+            <p class="prod-h">Built on</p>
+            <ul class="prod-chips">
+              <li>FastAPI</li>
+              <li>PostgreSQL</li>
+              <li>React</li>
+              <li>FBR POS API</li>
+              <li>Docker</li>
+              <li>A4 print pipeline</li>
+            </ul>
+
+            <p class="prod-h prod-h-2">By the numbers</p>
+            <ul class="prod-figs">
+              <li><span class="prod-fig-n">17</span> <span class="prod-fig-l">Ledger columns mirrored exactly</span></li>
+              <li><span class="prod-fig-n">Zero</span> <span class="prod-fig-l">Retraining needed for staff</span></li>
+            </ul>
+
+            <a class="prod-more" href="#book">
+              <span>Discuss a build like this</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-name="LaunchPaid">
+        <div class="prod-top">
+          <div>
+            <p class="prod-tag"><span class="prod-live">Live</span> SaaS &amp; CRM</p>
+            <h3 class="prod-name">LaunchPaid</h3>
+            <p class="prod-sub">TikTok Shop creator CRM for agencies</p>
+          </div>
+          <p class="prod-no">03</p>
+        </div>
+
+        <p class="prod-desc">
+          Agencies running TikTok Shop influencer campaigns were managing creators, payouts,
+          and communication across a dozen disconnected tools. We built one CRM with
+          role-based dashboards for agencies, creators, and brands, live GMV tracking,
+          automated Discord and SMS messaging, and Stripe or Fanbasis payouts.
+        </p>
+
+        <div class="prod-body">
+          <div>
+            <p class="prod-h">Key features</p>
+            <ul class="prod-mods">
+              <li>
+                <span class="prod-mod-n">Three role-based dashboards</span>
+                <span class="prod-mod-d">Purpose-built experiences for agencies, creators, and brands, each scoped to exactly the workflows and data that role needs.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Live GMV tracking</span>
+                <span class="prod-mod-d">Real-time sales data per creator and product, pulled directly from the TikTok Shop Partner Center API.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Discord &amp; SMS automation</span>
+                <span class="prod-mod-d">Automatic Discord role assignment on campaign events, plus SMS reminders and broadcasts.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Automated, flexible payouts</span>
+                <span class="prod-mod-d">Fixed, GMV-based, pay-per-post, or hybrid payout models processed automatically via Stripe or Fanbasis.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="prod-side">
+            <p class="prod-h">Built on</p>
+            <ul class="prod-chips">
+              <li>Next.js</li>
+              <li>FastAPI</li>
+              <li>TikTok Shop API</li>
+              <li>Discord API</li>
+              <li>Stripe</li>
+              <li>SendBlue</li>
+            </ul>
+
+            <p class="prod-h prod-h-2">By the numbers</p>
+            <ul class="prod-figs">
+              <li><span class="prod-fig-n">100K+</span> <span class="prod-fig-l">Concurrent users by design</span></li>
+              <li><span class="prod-fig-n">&lt;500ms</span> <span class="prod-fig-l">Target API response, 95% of requests</span></li>
+            </ul>
+
+            <a class="prod-more" href="#book">
+              <span>Discuss a build like this</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-name="Scounts">
+        <div class="prod-top">
+          <div>
+            <p class="prod-tag"><span class="prod-live">Live</span> FinTech mobile app</p>
+            <h3 class="prod-name">Scounts</h3>
+            <p class="prod-sub">Digital tax filing for Pakistani taxpayers</p>
+          </div>
+          <p class="prod-no">04</p>
+        </div>
+
+        <p class="prod-desc">
+          Filing income tax in Pakistan meant navigating a confusing FBR portal alone, or
+          paying a lawyer for something that should be simple. We built a guided mobile app
+          for income tax filing, NTN registration, and real-time salary tax calculation,
+          backed by live FBR data and licensed consultants.
+        </p>
+
+        <div class="prod-body">
+          <div>
+            <p class="prod-h">Key features</p>
+            <ul class="prod-mods">
+              <li>
+                <span class="prod-mod-n">Guided return filing</span>
+                <span class="prod-mod-d">A step-by-step wizard collects income, deductions, and declarations, then hands off securely to a consultant for FBR submission.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">NTN registration assistance</span>
+                <span class="prod-mod-d">Users submit identity and business details in-app; consultants complete registration with the FBR on their behalf.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Real-time salary tax calculator</span>
+                <span class="prod-mod-d">Applies current FBR slabs to salary, allowances, and deductions for an instant annual and monthly liability breakdown.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">End-to-end encrypted data</span>
+                <span class="prod-mod-d">Financial data encrypted in transit and at rest, used solely for the user's own filing, never shared with third parties.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="prod-side">
+            <p class="prod-h">Built on</p>
+            <ul class="prod-chips">
+              <li>Flutter</li>
+              <li>Firebase</li>
+              <li>FBR API</li>
+              <li>PDF Export</li>
+              <li>E2E Encryption</li>
+            </ul>
+
+            <p class="prod-h prod-h-2">By the numbers</p>
+            <ul class="prod-figs">
+              <li><span class="prod-fig-n">500+</span> <span class="prod-fig-l">Installs on Google Play</span></li>
+              <li><span class="prod-fig-n">2023</span> <span class="prod-fig-l">Live and maintained since</span></li>
+            </ul>
+
+            <a class="prod-more" href="#book">
+              <span>Discuss a build like this</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="prod-card" data-name="Revenue Express">
+        <div class="prod-top">
+          <div>
+            <p class="prod-tag"><span class="prod-live">Live</span> Web platform</p>
+            <h3 class="prod-name">Revenue Express</h3>
+            <p class="prod-sub">Marketing site, SEO blog, and internal command centre</p>
+          </div>
+          <p class="prod-no">05</p>
+        </div>
+
+        <p class="prod-desc">
+          A performance marketing agency's contact form was silently discarding every lead,
+          with zero visibility into what was working on their site. We shipped one Next.js
+          application running the marketing site, an SEO-optimised blog, and an internal
+          command centre with first-party analytics and a full lead pipeline.
+        </p>
+
+        <div class="prod-body">
+          <div>
+            <p class="prod-h">Key features</p>
+            <ul class="prod-mods">
+              <li>
+                <span class="prod-mod-n">First-party analytics, no cookie banner</span>
+                <span class="prod-mod-d">A 2KB tracking script records anonymous visitor and session behaviour, pre-aggregated in real time so dashboards stay fast at scale.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Contact form to won/lost pipeline</span>
+                <span class="prod-mod-d">Every lead carries its visit context — arrival source, time on page, scroll depth — so the team knows who to call first.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">SEO-engineered blog</span>
+                <span class="prod-mod-d">Server-rendered Markdown posts with canonical URLs, structured data, and an auto-updating sitemap, on the same domain as the site.</span>
+              </li>
+              <li>
+                <span class="prod-mod-n">Hardened internal access</span>
+                <span class="prod-mod-d">No public signup; hashed passwords, server-side sessions, and instant revocation the moment a teammate is deactivated.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="prod-side">
+            <p class="prod-h">Built on</p>
+            <ul class="prod-chips">
+              <li>Next.js</li>
+              <li>PostgreSQL</li>
+              <li>Server Components</li>
+              <li>Vercel</li>
+              <li>bcrypt</li>
+            </ul>
+
+            <p class="prod-h prod-h-2">By the numbers</p>
+            <ul class="prod-figs">
+              <li><span class="prod-fig-n">0</span> <span class="prod-fig-l">Leads lost — every submission tracked</span></li>
+              <li><span class="prod-fig-n">1 app</span> <span class="prod-fig-l">Site, blog, and portal in one deploy</span></li>
+            </ul>
+
+            <a class="prod-more" href="#book">
+              <span>Discuss a build like this</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="shell prod-controls">
+    <div class="prod-dots" id="prod-dots" role="tablist" aria-label="Choose a case study"></div>
+    <div class="prod-arrows">
+      <button class="prod-arrow" type="button" data-dir="-1" aria-label="Previous case study">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      </button>
+      <button class="prod-arrow" type="button" data-dir="1" aria-label="Next case study">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote">
+  <div class="shell quote-in">
+    <div class="quote-mark">
+      <canvas id="quote-glyph" aria-hidden="true"></canvas>
+    </div>
+    <blockquote class="quote-body">
+      <p class="quote-text">We map the workflow before we write a line of code. Everything good follows from that.</p>
+      <footer class="quote-by">
+        <span class="quote-name">Orcane</span>
+        <span class="quote-role">Our engineering philosophy</span>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ PROCESS — how a project actually runs ============ -->
+<section class="proc" id="process">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="sec-eyebrow">How we work</p>
+      <h2 class="sec-title">A process built to<br>keep you informed.</h2>
+      <p class="sec-lede">
+        Every project runs the same five stages. Weekly check-ins, direct access to the
+        engineers building your product, and no surprises at delivery.
+      </p>
+    </header>
+
+    <ol class="proc-list">
+      <li class="proc-step">
+        <p class="proc-n">01</p>
+        <div class="proc-body">
+          <h3 class="proc-t">Discover</h3>
+          <p class="proc-p">We map your workflow, vocabulary, and constraints through direct conversation — how the work really happens, not how a process document says it should. Nothing is assumed and nothing is proposed before we understand it.</p>
+          <ul class="proc-out"><li>Workflow &amp; requirements mapping</li><li>Written scope and constraints</li></ul>
+        </div>
+      </li>
+      <li class="proc-step">
+        <p class="proc-n">02</p>
+        <div class="proc-body">
+          <h3 class="proc-t">Design</h3>
+          <p class="proc-p">We wireframe the key flows and validate the plan before any production code is written. You see how the system will look and behave — and approve it — while changes are still cheap.</p>
+          <ul class="proc-out"><li>Wireframes and user flows</li><li>System architecture and stack</li></ul>
+        </div>
+      </li>
+      <li class="proc-step">
+        <p class="proc-n">03</p>
+        <div class="proc-body">
+          <h3 class="proc-t">Develop</h3>
+          <p class="proc-p">We build in focused sprints with visible, testable progress at every stage. You see real, working software at each milestone — never a big reveal at the end — and priorities can shift as feedback comes in.</p>
+          <ul class="proc-out"><li>Short sprint cycles</li><li>Working demos and weekly check-ins</li></ul>
+        </div>
+      </li>
+      <li class="proc-step">
+        <p class="proc-n">04</p>
+        <div class="proc-body">
+          <h3 class="proc-t">Test</h3>
+          <p class="proc-p">We verify against real data and edge cases, not just clean demo scenarios. Functional, regression, performance, and security checks all run before anything reaches you, so we catch the bugs first.</p>
+          <ul class="proc-out"><li>Automated and manual QA</li><li>Security and performance checks</li></ul>
+        </div>
+      </li>
+      <li class="proc-step">
+        <p class="proc-n">05</p>
+        <div class="proc-body">
+          <h3 class="proc-t">Deploy &amp; support</h3>
+          <p class="proc-p">We handle the full deployment — domains, cloud hosting, CI/CD, and go-live — then stay engaged for monitoring and iteration. You receive the full source code and documentation, so you are never dependent on any one person.</p>
+          <ul class="proc-out"><li>Production deployment &amp; handover</li><li>Ongoing maintenance and monitoring</li></ul>
+        </div>
+      </li>
+    </ol>
+
+    <div class="proc-incl">
+      <p class="proc-incl-h">Every project comes with</p>
+      <ul class="proc-incl-list">
+        <li><span>Security by design</span> Authentication, data isolation, and access control built in from day one.</li>
+        <li><span>Tested before shipping</span> Automated and manual testing against real-world data and edge cases.</li>
+        <li><span>Full documentation</span> You are never dependent on one person to understand your own system.</li>
+        <li><span>Direct communication</span> You talk to the engineers building your product, not a relay of managers.</li>
+        <li><span>Post-launch support</span> Ongoing maintenance and monitoring, so nothing breaks silently.</li>
+        <li><span>Transparent timelines</span> Real progress, real dates, honest trade-offs — never inflated promises.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="stk" id="stack">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="sec-eyebrow">Our tech stack</p>
+      <h2 class="sec-title">Chosen for the job,<br>not for the résumé.</h2>
+      <p class="sec-lede">
+        We pick proven, production-grade tools for every layer of the stack, and stay
+        flexible where your environment requires it — so what we hand over is a system your
+        own team can maintain, not one only its author understands.
+      </p>
+    </header>
+
+    <div class="stk-grid">
+      <div class="stk-group">
+        <p class="stk-h">Backend &amp; APIs</p>
+        <ul><li>Python</li><li>FastAPI</li><li>Django</li><li>Node.js</li><li>REST / GraphQL</li></ul>
+      </div>
+      <div class="stk-group">
+        <p class="stk-h">Frontend &amp; mobile</p>
+        <ul><li>React / Next.js</li><li>TypeScript</li><li>React Native</li><li>Flutter</li><li>Tailwind CSS</li></ul>
+      </div>
+      <div class="stk-group">
+        <p class="stk-h">AI &amp; machine learning</p>
+        <ul><li>scikit-learn</li><li>PyTorch</li><li>LangChain</li><li>HuggingFace</li><li>OpenCV</li></ul>
+      </div>
+      <div class="stk-group">
+        <p class="stk-h">Cloud &amp; DevOps</p>
+        <ul><li>Docker</li><li>GCP Cloud Run</li><li>Firebase</li><li>Terraform</li><li>GitHub Actions</li></ul>
+      </div>
+      <div class="stk-group">
+        <p class="stk-h">Data &amp; databases</p>
+        <ul><li>PostgreSQL</li><li>Redis</li><li>BigQuery</li><li>Firestore</li><li>Supabase</li></ul>
+      </div>
+      <div class="stk-group">
+        <p class="stk-h">Automation &amp; integrations</p>
+        <ul><li>n8n</li><li>LangGraph</li><li>Stripe</li><li>FBR POS API</li><li>Twilio / SendGrid</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="book" id="book">
+  <div class="shell book-in">
+    <p class="sec-eyebrow">Let's build together</p>
+    <h2 class="book-title">Ready for software<br><span>that actually fits?</span></h2>
+    <p class="book-lede">
+      Tell us what you're building, or what's slowing you down, and we'll come back with a
+      clear plan and a real quote.
+    </p>
+
+    <div class="book-links">
+      <a class="book-link" href="mailto:hello@orcane.io">
+        <span class="book-link-h">Email</span>
+        <span class="book-link-v">hello@orcane.io</span>
+      </a>
+      <a class="book-link" href="https://wa.me/923265025286">
+        <span class="book-link-h">Phone / WhatsApp</span>
+        <span class="book-link-v">+92 326 5025286</span>
+      </a>
+      <a class="book-link" href="https://linkedin.com/company/orcane-io">
+        <span class="book-link-h">LinkedIn</span>
+        <span class="book-link-v">/company/orcane-io</span>
+      </a>
+      <a class="book-link" href="https://orcane.io">
+        <span class="book-link-h">Location</span>
+        <span class="book-link-v">Islamabad, Pakistan</span>
+      </a>
+    </div>
+
+    <a class="btn btn-solid btn-lg" data-magnetic href="mailto:hello@orcane.io">
+      Get a free proposal
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+
+    <div class="book-expect">
+      <p class="book-expect-h">What happens next</p>
+      <ol class="book-steps">
+        <li><span>01</span> Send us a project brief</li>
+        <li><span>02</span> We reply in 1–2 business days</li>
+        <li><span>03</span> A call to scope the work</li>
+        <li><span>04</span> A written proposal and quote</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- the machine, half-buried under the footer -->
+  <div class="book-gear" aria-hidden="true">
+    <canvas id="gear-field" class="gear-field"></canvas>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Orcane — home">
+          <span class="brand-o" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <path class="brand-ring" d="M 39.18 16.71 A 35 35 0 1 1 15.34 54.87" fill="none" stroke="currentColor"
+                    stroke-width="6.6" stroke-linecap="round"/>
+              <path class="brand-fin" d="M43 27 C30 28 21 36 16 54 C25 40 33 33 43 27 Z"/>
+            </svg>
+          </span>
+          <span class="brand-word" aria-hidden="true">
+            <span class="bl">r</span><span class="bl">c</span><span class="bl">a</span><span class="bl">n</span><span class="bl">e</span>
+          </span>
+        </a>
+        <p class="foot-tag">Software built around your business.</p>
+      </div>
+
+      <nav class="foot-nav" aria-label="Footer">
+        <div>
+          <p class="foot-h">Company</p>
+          <a href="#why">Why Orcane</a>
+          <a href="#process">Process</a>
+          <a href="#stack">Tech stack</a>
+        </div>
+        <div>
+          <p class="foot-h">Work</p>
+          <a href="#services">Services</a>
+          <a href="#product">Case studies</a>
+          <a href="#cost">The problem</a>
+        </div>
+        <div>
+          <p class="foot-h">Contact</p>
+          <a href="mailto:hello@orcane.io">hello@orcane.io</a>
+          <a href="https://wa.me/923265025286">+92 326 5025286</a>
+          <a href="https://linkedin.com/company/orcane-io">LinkedIn</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="foot-legal">
+      <p>© 2026 Orcane. All rights reserved.</p>
+      <p>Islamabad / Rawalpindi, Pakistan</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/hero-waves.js"></script>
+<script src="js/decisions.js"></script>
+<script src="js/services.js"></script>
+<script src="js/products.js"></script>
+<script src="js/quote.js"></script>
+<script src="js/gear.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

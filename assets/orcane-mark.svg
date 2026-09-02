@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Approximation of the Orcane mark: an open ring with the fin sweeping into
+       the gap. Replace with the real vector when you have it. -->
+  <path d="M 39.18 16.71 A 35 35 0 1 1 15.34 54.87" fill="none" stroke="#0A0A0A" stroke-width="6.6" stroke-linecap="round"/>
+  <path d="M43 27 C30 28 21 36 16 54 C25 40 33 33 43 27 Z" fill="#1B3EF5"/>
+</svg>

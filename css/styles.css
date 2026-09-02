@@ -1,0 +1,1877 @@
+/* ==========================================================================
+   Orcane — Engineering Digital Excellence
+   Dark theme, neon-blue accent.
+   ========================================================================== */
+
+:root {
+  /* surfaces */
+  --bg:        oklch(0.135 0.014 250);
+  --bg-2:      oklch(0.175 0.016 250);
+  --bg-3:      oklch(0.215 0.018 250);
+  --border:    oklch(0.30 0.018 250);
+
+  /* type */
+  --fg:        oklch(0.985 0 0);
+  --muted:     oklch(0.70 0.012 250);
+  --muted-2:   oklch(0.56 0.012 250);
+
+  /* neon blue accent */
+  --accent:    oklch(0.76 0.16 226);
+  --accent-hi: oklch(0.86 0.13 218);
+  --accent-2:  oklch(0.62 0.21 258);
+
+  --glow:   0 0 34px oklch(0.76 0.16 226 / .40);
+  --glow-s: 0 0 16px oklch(0.76 0.16 226 / .30);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Inter Tight", "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --shell: 1240px;
+  --radius: 14px;
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+h1, h2, h3, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+svg { display: block; }
+img { display: block; max-width: 100%; }
+
+::selection { background: oklch(0.76 0.16 226 / .30); color: var(--fg); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  padding: .75rem 1.25rem; background: var(--accent); color: #04121c;
+  font-weight: 600; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) { .shell { padding-inline: 2rem; } }
+
+.ico {
+  width: 1.05rem; height: 1.05rem;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  white-space: nowrap;
+  border-radius: 999px;
+  font-size: .875rem;
+  font-weight: 600;
+  padding: .6rem 1.15rem;
+  transition: background-color .25s, color .25s, border-color .25s, box-shadow .35s, transform .18s;
+  will-change: transform;
+}
+
+.btn-solid { background: var(--fg); color: #06070B; }
+.btn-solid:hover { background: var(--accent-hi); box-shadow: var(--glow); }
+
+.btn-ghost { color: var(--fg); border: 1px solid transparent; }
+.btn-ghost:hover { color: var(--accent-hi); }
+
+.btn-lg { font-size: 1rem; padding: .95rem 1.7rem; }
+.btn-block { width: 100%; }
+
+.btn-solid .ico { transition: transform .3s cubic-bezier(.2,.9,.3,1); }
+.btn-solid:hover .ico { transform: translateX(5px); }
+.ico-slide { opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .3s; }
+.btn-ghost:hover .ico-slide { opacity: 1; transform: translateX(0); }
+
+.link-quiet { font-size: .875rem; color: var(--muted); transition: color .2s; }
+.link-quiet:hover { color: var(--fg); }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+/* No bar, no blur, no border — the header is only its elements, floating
+   straight on the page at every scroll position. */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+}
+
+/* Not a bar: a soft dissolve with no edge, no border and no blur, so copy
+   scrolling underneath fades out instead of colliding with the wordmark.
+   It is absent entirely at the top of the page, where the hero needs nothing. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 150px;
+  pointer-events: none;
+  /* opaque enough across the row itself to clear whatever passes under it,
+     then eased away over many stops so there is never a visible band edge */
+  background: linear-gradient(to bottom,
+    oklch(0.10 0.012 250 / .97) 0%,
+    oklch(0.10 0.012 250 / .95) 32%,
+    oklch(0.10 0.012 250 / .82) 50%,
+    oklch(0.10 0.012 250 / .48) 68%,
+    oklch(0.10 0.012 250 / .16) 86%,
+    oklch(0.10 0.012 250 / 0) 100%);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.site-header.is-stuck::before { opacity: 1; }
+
+/* With nothing painted behind them, the empty space between the elements must
+   not swallow clicks or the pointer — the hero buttons and the glyph field's
+   torch both live under this strip. Only the real controls take input. */
+.site-header,
+.header-inner { pointer-events: none; }
+.brand,
+.header-nav,
+.header-actions,
+.nav-toggle { pointer-events: auto; }
+
+/* Legibility comes from the type itself rather than a plate: a soft dark halo
+   holds the elements over the hero waves and the glyph wall alike. */
+.site-header .brand,
+.site-header .nav-link,
+.site-header .link-quiet {
+  text-shadow:
+    0 1px 2px oklch(0.10 0.010 250 / .78),
+    0 2px 18px oklch(0.10 0.010 250 / .85);
+}
+.site-header .btn-solid { box-shadow: 0 6px 24px oklch(0.08 0.010 250 / .55); }
+
+.header-inner {
+  /* above the ::before dissolve — without this the statically positioned bits
+     (the wordmark, the Contact link) paint underneath it while the positioned
+     ones (nav links, the button) paint on top */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 76px;
+  transition: height .35s cubic-bezier(.2,.9,.3,1);
+}
+/* the only thing scrolling changes: the row tightens up */
+.site-header.is-stuck .header-inner { height: 62px; }
+
+/* The emblem is the "O" of the wordmark — one lockup, not a badge beside a
+   word. Sized off the cap height so the two never drift apart. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--fg);
+}
+.brand-o {
+  display: block;
+  width: 1.18em;
+  height: 1.18em;
+  /* the arc only fills the middle ~70% of its box, so pull the wordmark back
+     in to sit as close as it does in the real lockup */
+  margin: 0 -0.115em 0 -0.09em;
+  transform: translateY(0.035em);
+  color: currentColor;
+  /* the mark gets the same halo as the wordmark — text-shadow does not reach
+     into an SVG, so it has to be a drop-shadow */
+  filter: drop-shadow(0 1px 5px oklch(0.10 0.010 250 / .85));
+  transition: filter .4s ease;
+}
+.brand-o svg {
+  width: 100%; height: 100%;
+  overflow: visible;
+  transition: transform .55s cubic-bezier(.2,.9,.3,1);
+}
+.brand-ring { transition: stroke .4s; }
+.brand-fin { fill: var(--accent); transition: fill .4s; }
+
+.brand-word { display: inline-flex; }
+.brand-word .bl {
+  display: inline-block;
+  transition: transform .42s cubic-bezier(.2,.9,.3,1), color .35s;
+}
+
+/* hover: the ring closes up, the fin sweeps, the letters ripple */
+.brand:hover .brand-o {
+  filter:
+    drop-shadow(0 1px 5px oklch(0.10 0.010 250 / .85))
+    drop-shadow(0 0 12px oklch(0.76 0.16 226 / .55));
+}
+.brand:hover .brand-o svg { transform: rotate(-32deg); }
+.brand:hover .brand-fin { fill: var(--accent-hi); }
+.brand:hover .brand-word .bl { transform: translateY(-3px); color: var(--accent-hi); }
+.brand:hover .brand-word .bl:nth-child(1) { transition-delay: 0ms; }
+.brand:hover .brand-word .bl:nth-child(2) { transition-delay: 35ms; }
+.brand:hover .brand-word .bl:nth-child(3) { transition-delay: 70ms; }
+.brand:hover .brand-word .bl:nth-child(4) { transition-delay: 105ms; }
+.brand:hover .brand-word .bl:nth-child(5) { transition-delay: 140ms; }
+
+.header-nav { display: none; align-items: center; gap: 2rem; }
+@media (min-width: 1000px) { .header-nav { display: flex; } }
+
+.nav-link { position: relative; font-size: .9rem; color: var(--muted); transition: color .25s; }
+.nav-link span { position: relative; display: inline-block; }
+.nav-link span::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 100%; height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .35s cubic-bezier(.2,.9,.3,1);
+}
+.nav-link:hover { color: var(--fg); }
+.nav-link:hover span::after { transform: scaleX(1); transform-origin: left; }
+
+/* the section the reader is currently in */
+.nav-link.is-current { color: var(--fg); }
+.nav-link.is-current span::after { transform: scaleX(1); transform-origin: left; }
+
+.header-actions { display: none; align-items: center; gap: 1.25rem; }
+@media (min-width: 1000px) { .header-actions { display: flex; } }
+
+/* ---- mobile toggle + overlay ---- */
+/* bare bars, no chip — the toggle is an element like the rest */
+.nav-toggle {
+  display: grid; place-content: center; gap: 6px;
+  width: 42px; height: 42px;
+  border: 0;
+  background: none;
+}
+@media (min-width: 1000px) { .nav-toggle { display: none; } }
+.nav-toggle span {
+  display: block; width: 20px; height: 1.5px; background: var(--fg);
+  box-shadow: 0 1px 7px oklch(0.10 0.010 250 / .9);
+  transition: transform .3s cubic-bezier(.2,.9,.3,1);
+}
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { transform: translateY(-3.75px) rotate(-45deg); }
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: oklch(0.135 0.014 250 / .97);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.mobile-nav[hidden] { display: none; }
+.mobile-nav.is-open { opacity: 1; }
+
+.mobile-nav-inner {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 104px 1.5rem 2rem;
+  height: 100%;
+}
+.mobile-nav-inner > a.is-current { color: var(--accent-hi); }
+.mobile-nav-inner > a {
+  display: flex;
+  align-items: baseline;
+  gap: .9rem;
+  padding: 1.05rem .25rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid oklch(0.30 0.018 250 / .5);
+  opacity: 0;
+  transform: translateY(14px);
+}
+.mobile-nav.is-open .mobile-nav-inner > a {
+  animation: menuIn .45s cubic-bezier(.2,.9,.3,1) forwards;
+  animation-delay: calc(var(--i, 0) * 55ms + 60ms);
+}
+.mi { font-family: var(--font-mono); font-size: .7rem; color: var(--accent); }
+
+.mobile-nav-foot {
+  margin-top: auto;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  padding-top: 2rem;
+}
+
+@keyframes menuIn { to { opacity: 1; transform: none; } }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 128px 0 56px;
+}
+
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero-waves { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* vertical data-striping over the waves */
+.hero-scan {
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(90deg,
+    transparent 0 2px, oklch(0.135 0.014 250 / .55) 2px 4px);
+  opacity: .75;
+}
+
+/* neon pool that tracks the pointer */
+.hero-glow {
+  position: absolute;
+  width: 620px; height: 620px;
+  left: 0; top: 0;
+  margin: -310px 0 0 -310px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    oklch(0.76 0.16 226 / .13) 0%,
+    oklch(0.62 0.21 258 / .07) 38%,
+    transparent 68%);
+  opacity: 0;
+  transition: opacity .5s ease;
+  will-change: transform;
+}
+.hero-glow.is-live { opacity: 1; }
+
+/* keeps the copy readable over the waves */
+.hero-scrim {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 68% 54% at 50% 46%,
+      oklch(0.135 0.014 250 / .88) 0%,
+      oklch(0.135 0.014 250 / .55) 45%,
+      transparent 76%),
+    linear-gradient(to bottom,
+      oklch(0.135 0.014 250 / .92) 0%,
+      transparent 22%,
+      transparent 70%,
+      oklch(0.135 0.014 250 / .96) 100%);
+}
+
+.hero-shell { position: relative; z-index: 2; text-align: center; }
+
+/* ---- headline ---- */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 7.4vw, 5.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.042em;
+  margin-bottom: 1.6rem;
+  text-wrap: balance;
+}
+.hero-title .ln { display: block; }
+/* words are kept whole so a line never breaks between two characters */
+.hero-title .wd { display: inline-block; white-space: nowrap; }
+.hero-title .ch {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  animation: chIn .5s cubic-bezier(.2,.9,.3,1) forwards;
+  animation-delay: var(--cd, 0ms);
+}
+.hero-title .ch.is-accent {
+  color: var(--accent);
+  text-shadow: 0 0 26px oklch(0.76 0.16 226 / .45);
+}
+@keyframes chIn { to { opacity: 1; transform: none; } }
+
+/* ---- sub + actions ---- */
+.hero-sub {
+  max-width: 46rem;
+  margin: 0 auto 2.4rem;
+  font-size: clamp(1rem, 1.6vw, 1.135rem);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem;
+  justify-content: center;
+  margin-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+/* ---- stat bar ---- */
+.stat-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: var(--radius);
+  border: 1px solid oklch(0.30 0.018 250 / .8);
+  background: oklch(0.135 0.014 250 / .72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  text-align: left;
+}
+@media (min-width: 620px)  { .stat-bar { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .stat-bar { grid-template-columns: repeat(4, 1fr); } }
+
+.stat {
+  position: relative;
+  /* a column so the tag can be pinned to the bottom: the stat lines wrap to
+     different heights, and left to flow the short one lifts its tag out of
+     line with the rest */
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.4rem 1.3rem;
+  border-top: 1px solid oklch(0.30 0.018 250 / .55);
+  transition: background-color .35s;
+}
+.stat:first-child { border-top: 0; }
+
+@media (min-width: 620px) {
+  .stat { border-left: 1px solid oklch(0.30 0.018 250 / .55); }
+  .stat:nth-child(-n+2) { border-top: 0; }
+  .stat:nth-child(odd) { border-left: 0; }
+}
+@media (min-width: 1000px) {
+  .stat { border-top: 0; border-left: 1px solid oklch(0.30 0.018 250 / .55); }
+  .stat:nth-child(odd) { border-left: 1px solid oklch(0.30 0.018 250 / .55); }
+  .stat:first-child { border-left: 0; }
+}
+
+.stat::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s cubic-bezier(.2,.9,.3,1);
+}
+.stat:hover { background: oklch(0.175 0.016 250 / .75); }
+.stat:hover::before { transform: scaleX(1); }
+
+.stat-line { font-size: 1.02rem; line-height: 1.45; }
+.stat-num {
+  font-weight: 700;
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  transition: color .3s;
+}
+.stat:hover .stat-num { color: var(--accent-hi); }
+.stat-txt { color: var(--muted); }
+.stat-tag {
+  margin-top: auto;
+  padding-top: .9rem;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  transition: color .3s;
+}
+.stat:hover .stat-tag { color: var(--accent); }
+
+/* ---- entrance reveals ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealIn .7s cubic-bezier(.2,.9,.3,1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes revealIn { to { opacity: 1; transform: none; } }
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal, .hero-title .ch, .mobile-nav-inner > a { opacity: 1; transform: none; }
+  .hero-glow { display: none; }
+}
+
+/* ==========================================================================
+   The hidden cost — what a project burns before it starts
+   ========================================================================== */
+.cost {
+  position: relative;
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--bg);
+  border-top: 1px solid oklch(0.30 0.018 250 / .35);
+}
+
+.cost-shell {
+  display: grid;
+  gap: clamp(2.75rem, 5vw, 4.5rem);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .cost-shell { grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); }
+  /* The copy leads in the DOM so the heading is read first on a phone; on a
+     wide screen the panel takes the left column and the copy sits beside it. */
+  .cost-panel { grid-column: 1; grid-row: 1; }
+  .cost-copy  { grid-column: 2; grid-row: 1; }
+}
+
+/* ---- copy ---- */
+.cost-eyebrow {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+.cost-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.72rem, 3.5vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.5rem;
+}
+.cost-lede {
+  max-width: 34rem;
+  font-size: clamp(.97rem, 1.35vw, 1.06rem);
+  line-height: 1.68;
+  color: var(--muted);
+}
+.cost-lede + .cost-lede { margin-top: 1.1rem; }
+
+/* the turn: the section states the problem, this line names the answer */
+.cost-answer {
+  display: flex;
+  gap: .7rem;
+  max-width: 34rem;
+  margin-top: 1.9rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(0.30 0.018 250 / .5);
+  font-size: .95rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+.cost-answer-mark { flex: none; color: var(--accent); }
+
+/* ---- the terminal panel ---- */
+.cost-panel {
+  margin: 0;
+  border-radius: var(--radius);
+  border: 1px solid oklch(0.30 0.018 250 / .75);
+  background: oklch(0.105 0.012 250);
+  box-shadow: 0 24px 60px oklch(0.06 0.01 250 / .55);
+  overflow: hidden;
+}
+.cost-panel-head {
+  padding: .95rem 1.25rem;
+  border-bottom: 1px solid oklch(0.30 0.018 250 / .55);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* The rows are monospace and must not reflow, so the panel scrolls sideways
+   rather than wrapping when the column gets tight. */
+.cost-scroll { overflow-x: auto; padding-top: .5rem; }
+.cost-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.cost-list { list-style: none; margin: 0; padding: 0; min-width: 34rem; }
+
+.cost-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1.15rem;
+  padding: .4rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity .55s cubic-bezier(.2,.9,.3,1),
+    transform .55s cubic-bezier(.2,.9,.3,1),
+    background-color .3s;
+  transition-delay: calc(var(--i, 0) * 45ms);
+}
+/* the whole panel is observed, not each row, so the cascade always runs as
+   one motion — on a phone the lower rows would otherwise sit blank until
+   they individually crossed the threshold */
+.cost-panel.in-view .cost-row { opacity: 1; transform: none; }
+.cost-row:hover { background: oklch(0.175 0.016 250 / .5); }
+
+.cost-idx { color: var(--muted-2); }
+.cost-txt { color: var(--muted); transition: color .3s; white-space: nowrap; }
+.cost-row:hover .cost-txt { color: var(--fg); }
+.cost-hrs { white-space: nowrap; text-align: right; color: var(--muted-2); }
+.cost-hrs-max { color: var(--accent); }
+
+.cost-total {
+  min-width: 34rem;      /* tracks .cost-list so it stays aligned while scrolling */
+  margin: .6rem 0 0;
+  padding: 1.05rem 1.25rem 1.15rem;
+  border-top: 1px solid oklch(0.30 0.018 250 / .55);
+  font-family: var(--font-mono);
+  font-size: .73rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.cost-total-val { color: var(--fg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cost-row { opacity: 1; transform: none; transition: none; }
+}
+
+/* ==========================================================================
+   Why Us — the decision field
+   ========================================================================== */
+.why {
+  position: relative;
+  /* clip, NOT hidden: overflow:hidden would make this a scroll container and
+     silently kill the sticky stage inside it */
+  overflow: clip;
+  padding: 0;
+  min-height: 100vh;
+  background: oklch(0.115 0.012 250);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+
+/* The stage is pinned for the whole section: one viewport tall, stuck to the
+   top, so the mark holds still and dead centre while the copy scrolls past
+   it. It takes no space in flow — the negative margin hands its height back
+   — so the copy below starts at the top of the section and rides over it. */
+/* One local ground for every piece of copy that rides over the decision
+   field. It is a text-shadow, not a panel: the ASCII stays fully visible
+   between the letterforms, but each glyph carries its own scrim so the
+   characters drifting underneath can never break a word up. */
+.why {
+  --ink-halo:
+    0 0 8px  oklch(0.115 0.012 250),
+    0 0 18px oklch(0.115 0.012 250 / .95),
+    0 0 34px oklch(0.115 0.012 250 / .75),
+    0 1px 2px oklch(0.115 0.012 250);
+}
+
+.why-stage {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  height: 100svh;
+  margin-bottom: -100vh;
+  margin-bottom: -100svh;
+}
+.why-field { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Only enough scrim to hold the copy; the wall is meant to stay readable.
+   No vertical fade any more — the stage is viewport-sized and pinned, so a
+   top/bottom fade would just park two grey bands on screen permanently. */
+.why-vignette {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg,
+      oklch(0.115 0.012 250 / .82) 0%,
+      oklch(0.115 0.012 250 / .55) 26%,
+      oklch(0.115 0.012 250 / .10) 46%,
+      oklch(0.115 0.012 250 / 0) 62%);
+}
+
+/* The copy runs down the left so the mark has the right half to itself.
+   Left-anchored rather than centred: at wide sizes a centred shell would
+   push the text into the middle and collide with the drifting mark. */
+.why-shell {
+  position: relative;
+  z-index: 3;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: clamp(1.25rem, 5vw, 5.5rem);
+  /* the section's own padding moved here, so the pinned stage can start at
+     the very top of the section and stay stuck to the very bottom */
+  padding-block: clamp(6rem, 12vw, 10rem) clamp(8rem, 14vw, 12rem);
+}
+
+/* ---- heading ---- */
+/* wide enough that each .ln of the title stays on its own single line */
+.why-head { max-width: 42rem; margin-bottom: clamp(4rem, 8vw, 7rem); }
+
+.why-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.85rem, 4.6vw, 3.35rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.6rem;
+  text-shadow: var(--ink-halo);
+}
+.why-title .ln { display: block; }
+
+/* This one sits at the widest, busiest part of the field, so it carries the
+   most weight of the fix: a step up in size, a heavier grade of Geist, and a
+   near-white ink instead of --muted. Grey-on-noise was the whole problem. */
+.why-intro {
+  font-size: clamp(1.04rem, 1.5vw, 1.19rem);
+  line-height: 1.72;
+  font-weight: 450;
+  color: oklch(0.94 0.005 250);
+  max-width: 34rem;
+  text-shadow: var(--ink-halo);
+}
+
+/* ---- numbered list, cascading right then resetting ---- */
+.why-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.75rem, 5vw, 4.25rem);
+}
+
+.why-item {
+  max-width: 25rem;
+  /* a short cascade only — the old one walked the copy into the mark */
+  margin-left: calc(var(--indent, 0) * clamp(0rem, 2.6vw, 3.25rem));
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s cubic-bezier(.2,.9,.3,1), transform .7s cubic-bezier(.2,.9,.3,1);
+}
+.why-item.in-view { opacity: 1; transform: none; }
+
+.why-num {
+  font-family: var(--font-mono);
+  font-size: .765rem;
+  font-weight: 500;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: .85rem;
+  text-shadow: var(--ink-halo);
+}
+.why-copy {
+  font-size: 1.0rem;
+  line-height: 1.68;
+  font-weight: 450;
+  color: oklch(0.90 0.006 250);
+  text-shadow: var(--ink-halo);
+}
+
+/* ---- corner CTA ---- */
+.why-more {
+  position: absolute;
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  bottom: clamp(1.5rem, 3vw, 2.75rem);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .55rem .5rem .55rem 1rem;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  border-radius: 8px;
+  background: oklch(0.145 0.014 250 / .85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s, border-color .3s, box-shadow .3s;
+}
+.why-more-plus {
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 5px;
+  background: oklch(0.22 0.02 245);
+  color: var(--fg);
+  font-size: .9rem;
+  transition: background-color .3s, transform .45s cubic-bezier(.2,.9,.3,1);
+}
+.why-more:hover { color: var(--fg); border-color: var(--accent); box-shadow: var(--glow-s); }
+.why-more:hover .why-more-plus { background: var(--accent); color: #06121c; transform: rotate(90deg); }
+
+@media (max-width: 900px) {
+  /* The bob swings a wide arc, and on a narrow screen that arc crosses the
+     reading column. Give it a short arm hanging in its own clear band above
+     the heading instead of over the copy. */
+  .why-shell { padding-bottom: clamp(4rem, 10vw, 6rem); }
+
+  .why-vignette {
+    background:
+      linear-gradient(to bottom,
+        oklch(0.115 0.012 250 / .72) 0%,
+        oklch(0.115 0.012 250 / .90) 30%,
+        oklch(0.115 0.012 250 / .90) 100%);
+  }
+
+  .why-item { max-width: none; margin-left: 0; }
+
+  .why-more {
+    position: static;
+    display: flex;
+    width: max-content;
+    margin: 3.25rem auto 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-item, .proc-step { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   Services — interactive capability cards
+
+   Twelve cards on one grid. Each is a button (the face) plus a region that
+   expands under it (the panel), so the whole thing is keyboard-operable and
+   announced correctly without a single extra ARIA hack.
+
+   The panel opens with grid-template-rows: 0fr -> 1fr, which animates to the
+   content's real height without ever hard-coding one.
+
+   The neon read comes from two layers painted behind the content: a cursor-
+   tracked accent wash at --mx/--my, and a hairline that sweeps the top edge.
+   Both are pure CSS off custom properties JS only has to set.
+   ========================================================================== */
+.cap {
+  position: relative;
+  padding-block: clamp(4.5rem, 9vw, 8.5rem);
+  background: var(--bg);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(.75rem, 1.4vw, 1.1rem);
+  align-items: start;
+}
+@media (min-width: 700px)  { .cap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .cap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* ---- the card ---- */
+.cap-card {
+  --mx: 50%;
+  --my: 0%;
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--radius);
+  border: 1px solid oklch(0.30 0.018 250 / .8);
+  background: oklch(0.163 0.015 250);
+  overflow: hidden;
+  transition: border-color .35s, background-color .35s, transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .45s;
+
+  /* rise in on scroll, staggered by --i down the grid */
+  opacity: 0;
+  transform: translateY(18px);
+}
+.cap-card.in-view {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--i, 0) * 45ms);
+}
+
+/* cursor-tracked accent wash */
+.cap-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    360px circle at var(--mx) var(--my),
+    oklch(0.76 0.16 226 / .16),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+
+/* the top-edge hairline that sweeps in from the left */
+.cap-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), oklch(0.76 0.16 226 / 0));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s cubic-bezier(.2,.9,.3,1);
+  pointer-events: none;
+}
+
+.cap-card:hover,
+.cap-card:focus-within {
+  border-color: oklch(0.76 0.16 226 / .55);
+  background: oklch(0.185 0.017 250);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px oklch(0.10 0.02 250 / .55);
+}
+.cap-card:hover::before,
+.cap-card:focus-within::before { opacity: 1; }
+.cap-card:hover::after,
+.cap-card:focus-within::after,
+.cap-card.is-open::after { transform: scaleX(1); }
+
+.cap-card.is-open {
+  border-color: oklch(0.76 0.16 226 / .55);
+  background: oklch(0.185 0.017 250);
+}
+.cap-card.is-open::before { opacity: 1; }
+
+/* ---- the face: the whole clickable head of the card ---- */
+.cap-face {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "glyph idx  open"
+    "glyph name name"
+    "line  line line";
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: .55rem;
+  width: 100%;
+  padding: clamp(1.4rem, 2.4vw, 1.8rem);
+  text-align: left;
+}
+
+.cap-glyph {
+  grid-area: glyph;
+  display: grid;
+  place-items: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  border-radius: 10px;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  background: oklch(0.135 0.014 250);
+  color: var(--accent);
+  transition: color .3s, border-color .3s, background-color .3s, box-shadow .4s;
+}
+.cap-glyph svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cap-card:hover .cap-glyph,
+.cap-card:focus-within .cap-glyph,
+.cap-card.is-open .cap-glyph {
+  color: var(--accent-hi);
+  border-color: oklch(0.76 0.16 226 / .5);
+  box-shadow: var(--glow-s);
+}
+
+.cap-idx {
+  grid-area: idx;
+  align-self: end;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .16em;
+  color: var(--muted-2);
+  transition: color .3s;
+}
+.cap-card:hover .cap-idx,
+.cap-card.is-open .cap-idx { color: var(--accent); }
+
+.cap-name {
+  grid-area: name;
+  align-self: start;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.02rem, 1.35vw, 1.16rem);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  /* two lines' worth, always — so a one-line and a two-line title leave the
+     closed cards in a row exactly the same height */
+  min-height: 2.44em;
+}
+
+.cap-line {
+  grid-area: line;
+  margin-top: .3rem;
+  min-height: 3.1em;      /* same reason as .cap-name */
+  font-size: .875rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* the + that becomes a − */
+.cap-open {
+  grid-area: open;
+  align-self: end;
+  position: relative;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  transition: border-color .3s, background-color .3s, transform .4s;
+}
+.cap-open::before,
+.cap-open::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: .58rem;
+  height: 1px;
+  background: var(--muted);
+  transform: translate(-50%, -50%);
+  transition: transform .4s cubic-bezier(.2,.9,.3,1), background-color .3s;
+}
+.cap-open::after { transform: translate(-50%, -50%) rotate(90deg); }
+
+.cap-card:hover .cap-open { border-color: oklch(0.76 0.16 226 / .5); }
+.cap-card:hover .cap-open::before,
+.cap-card:hover .cap-open::after { background: var(--accent-hi); }
+
+.cap-card.is-open .cap-open {
+  border-color: var(--accent);
+  background: oklch(0.76 0.16 226 / .14);
+  transform: rotate(180deg);
+}
+.cap-card.is-open .cap-open::before,
+.cap-card.is-open .cap-open::after { background: var(--accent-hi); }
+.cap-card.is-open .cap-open::after { transform: translate(-50%, -50%) rotate(0deg); }
+
+/* ---- the panel: 0fr -> 1fr so it animates to its real height ---- */
+.cap-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .45s cubic-bezier(.3,.9,.3,1);
+}
+.cap-card.is-open .cap-panel { grid-template-rows: 1fr; }
+
+.cap-panel-in {
+  overflow: hidden;
+  min-height: 0;
+  padding-inline: clamp(1.4rem, 2.4vw, 1.8rem);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.cap-card.is-open .cap-panel-in {
+  opacity: 1;
+  transition-delay: .12s;
+}
+
+.cap-desc {
+  padding-top: 1.2rem;
+  border-top: 1px solid oklch(0.30 0.018 250 / .65);
+  font-size: .875rem;
+  line-height: 1.66;
+  color: var(--muted);
+}
+
+.cap-points {
+  list-style: none;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .5rem;
+}
+.cap-points li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .7rem;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: .705rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.cap-points li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.cap-chips {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0 0 clamp(1.4rem, 2.4vw, 1.8rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.cap-chips li {
+  padding: .32rem .62rem;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  background: oklch(0.135 0.014 250);
+  font-family: var(--font-mono);
+  font-size: .655rem;
+  color: var(--muted-2);
+}
+
+/* ---- the ongoing-support footer under the grid ---- */
+.cap-foot {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  padding: clamp(1.8rem, 3.5vw, 2.75rem);
+  border-radius: var(--radius);
+  border: 1px solid oklch(0.30 0.018 250 / .8);
+  background: oklch(0.115 0.012 250);
+}
+@media (min-width: 1000px) {
+  .cap-foot {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.15fr);
+    align-items: start;
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  .cap-foot-cta { grid-column: 1; justify-self: start; }
+  .cap-foot-list { grid-row: 1 / span 2; grid-column: 2; }
+}
+
+.cap-foot-h {
+  margin-bottom: .9rem;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.cap-foot-t {
+  margin-bottom: .8rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.cap-foot-p {
+  max-width: 28rem;
+  font-size: .93rem;
+  line-height: 1.66;
+  color: var(--muted);
+}
+
+.cap-foot-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: oklch(0.30 0.018 250 / .6); border-radius: 10px; overflow: hidden; }
+.cap-foot-list li {
+  padding: 1rem 1.15rem;
+  background: oklch(0.163 0.015 250);
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--muted);
+  transition: background-color .3s;
+}
+.cap-foot-list li:hover { background: oklch(0.205 0.017 250); }
+.cap-foot-list li span {
+  display: block;
+  margin-bottom: .22rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.cap-foot-cta { align-self: start; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cap-card { opacity: 1; transform: none; }
+  .cap-card:hover, .cap-card:focus-within { transform: none; }
+  .cap-panel, .cap-panel-in, .cap-open, .cap-open::before, .cap-open::after { transition: none; }
+}
+
+/* ==========================================================================
+   Shared section furniture — every block below leads the same way
+   ========================================================================== */
+.sec-head { max-width: 44rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
+
+.sec-eyebrow {
+  margin-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.sec-title {
+  margin-bottom: 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.72rem, 3.5vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+.sec-lede {
+  max-width: 36rem;
+  font-size: clamp(.95rem, 1.3vw, 1.04rem);
+  line-height: 1.68;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Products — a swipeable rail of our own platforms
+   ========================================================================== */
+.prod {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--bg);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+
+/* full-bleed rail, but the first card lines up with the shell */
+.prod-railwrap { overflow: hidden; }
+.prod-rail {
+  position: relative;
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* scroll-padding must match padding-inline, or mandatory snap pulls card
+     one flush against the container edge and eats the gutter that lines it
+     up with the page shell */
+  --rail-pad: max(1.25rem, calc((100% - var(--shell)) / 2 + 2rem));
+  padding-inline: var(--rail-pad);
+  scroll-padding-inline-start: var(--rail-pad);
+  padding-block: .35rem 1.5rem;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.prod-rail::-webkit-scrollbar { display: none; }
+.prod-rail:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+/* snapping fights a drag in progress, so it is switched off for the duration */
+.prod-rail.is-drag { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+
+.prod-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: min(90vw, 60rem);
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+  border-radius: var(--radius);
+  border: 1px solid oklch(0.30 0.018 250 / .75);
+  background: oklch(0.163 0.015 250);
+}
+
+.prod-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid oklch(0.30 0.018 250 / .6);
+}
+.prod-tag {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .7rem;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.prod-live, .prod-wip {
+  padding: .2rem .5rem;
+  border-radius: 4px;
+  font-size: .62rem;
+  letter-spacing: .12em;
+}
+.prod-live { background: oklch(0.76 0.16 226 / .18); color: var(--accent-hi); }
+.prod-wip  { background: oklch(0.30 0.018 250 / .8); color: var(--muted); }
+
+.prod-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.prod-sub { margin-top: .5rem; font-size: .95rem; color: var(--muted); }
+.prod-no {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--muted-2);
+}
+
+.prod-desc {
+  max-width: 44rem;
+  margin: 1.4rem 0 2rem;
+  font-size: clamp(.93rem, 1.2vw, 1.01rem);
+  line-height: 1.66;
+  color: var(--muted);
+}
+
+.prod-body { display: grid; gap: clamp(1.75rem, 3vw, 2.75rem); }
+@media (min-width: 860px) {
+  .prod-body { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+}
+
+.prod-h {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.prod-mods { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.05rem; }
+.prod-mods li { padding-left: 1rem; border-left: 1px solid oklch(0.30 0.018 250 / .8); }
+.prod-mod-n { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .3rem; }
+.prod-mod-d { display: block; font-size: .875rem; line-height: 1.6; color: var(--muted); }
+
+.prod-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+.prod-chips li {
+  padding: .38rem .7rem;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250 / .9);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: var(--muted);
+}
+
+/* sits in the side column, in the slot the pricing block used to occupy */
+.prod-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.9rem;
+  margin-top: 1.9rem;
+  padding: .85rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250);
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--fg);
+  transition: background-color .25s, border-color .25s, box-shadow .35s;
+}
+.prod-more:hover {
+  border-color: var(--accent);
+  background: oklch(0.215 0.018 250);
+  box-shadow: var(--glow-s);
+}
+.prod-more .ico { transition: transform .3s cubic-bezier(.2,.9,.3,1); }
+.prod-more:hover .ico { transform: translateX(5px); }
+
+.prod-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+.prod-dots { display: flex; gap: .5rem; }
+.prod-dot {
+  width: 30px; height: 4px;
+  border-radius: 2px;
+  background: oklch(0.30 0.018 250);
+  transition: background-color .3s, width .3s;
+}
+.prod-dot.is-on { width: 52px; background: var(--accent); }
+
+.prod-arrows { display: flex; gap: .6rem; }
+.prod-arrow {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250);
+  color: var(--fg);
+  transition: background-color .25s, border-color .25s, opacity .25s;
+}
+.prod-arrow:hover:not(:disabled) { background: oklch(0.215 0.018 250); border-color: var(--accent); }
+.prod-arrow:disabled { opacity: .3; cursor: default; }
+
+/* ==========================================================================
+   Process
+   ========================================================================== */
+.proc {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: oklch(0.115 0.012 250);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+
+.proc-list { list-style: none; margin: 0; padding: 0; }
+
+.proc-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.1rem, 2.5vw, 2.25rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity .6s cubic-bezier(.2,.9,.3,1),
+    transform .6s cubic-bezier(.2,.9,.3,1);
+}
+.proc-step.in-view { opacity: 1; transform: none; }
+.proc-step:last-child { padding-bottom: 0; }
+
+/* Each step draws the rail down to the NEXT one — from the bottom of its own
+   number to the top of the following number. Drawn per step rather than as a
+   single line down the whole list, because one absolutely positioned line has
+   to guess where to stop and silently fails to reach the last circle when the
+   steps are not all the same height. */
+.proc-step::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;              /* the centre of a 2.1rem number */
+  top: 2.1rem;                /* just under it */
+  bottom: 0;                  /* meets the next number exactly */
+  width: 1px;
+  background: oklch(0.30 0.018 250 / .85);
+}
+.proc-step:last-child::before { display: none; }
+.proc-step:first-child::before {
+  background: linear-gradient(to bottom, oklch(0.76 0.16 226 / .55), oklch(0.30 0.018 250 / .85));
+}
+@media (min-width: 760px) {
+  .proc-step::before { left: 1.4rem; top: 2.8rem; }
+}
+
+.proc-n {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.1rem; height: 2.1rem;
+  border-radius: 999px;
+  border: 1px solid oklch(0.30 0.018 250);
+  background: oklch(0.115 0.012 250);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: var(--muted-2);
+  transition: border-color .3s, color .3s, background-color .3s;
+}
+@media (min-width: 760px) { .proc-n { width: 2.8rem; height: 2.8rem; font-size: .76rem; } }
+.proc-step:hover .proc-n { border-color: var(--accent); color: var(--accent-hi); }
+
+.proc-t {
+  margin-bottom: .7rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  letter-spacing: -0.02em;
+}
+.proc-p { max-width: 40rem; font-size: .96rem; line-height: 1.66; color: var(--muted); }
+
+.proc-out {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.75rem;
+}
+.proc-out li {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.proc-out li::before { content: ""; width: 6px; height: 6px; flex: none; background: var(--accent); }
+
+/* ---- the step being read, and the ones already passed ----
+   Scoped to .has-spy, which the script adds, so that if it never runs every
+   step simply stays at full strength instead of all of them sitting dimmed.
+   These come after the rules above deliberately: several match at identical
+   specificity and rely on source order to win. */
+.proc-t, .proc-p { transition: color .35s; }
+.proc-out li { transition: color .35s; }
+.proc-out li::before { transition: background-color .35s; }
+.proc-n { transition: border-color .3s, color .3s, background-color .3s, box-shadow .35s; }
+
+.proc-list.has-spy .proc-step:not(.is-active) .proc-t { color: oklch(0.80 0.012 250); }
+.proc-list.has-spy .proc-step:not(.is-active) .proc-p { color: var(--muted-2); }
+.proc-list.has-spy .proc-step:not(.is-active) .proc-out li { color: oklch(0.46 0.012 250); }
+.proc-list.has-spy .proc-step:not(.is-active) .proc-out li::before { background: oklch(0.34 0.018 250); }
+
+/* passed: the number and the rail behind you carry the accent */
+.proc-step.is-done .proc-n { border-color: oklch(0.76 0.16 226 / .45); color: var(--accent); }
+.proc-step.is-done::before { background: oklch(0.76 0.16 226 / .45); }
+
+/* current: the number fills in */
+.proc-step.is-active .proc-n {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #06121c;
+  box-shadow: var(--glow-s);
+}
+.proc-step.is-active .proc-t { color: var(--fg); }
+
+/* On a wide screen the outputs move into their own column beside the step,
+   so the list uses the width instead of hugging the left edge. */
+@media (min-width: 1100px) {
+  .proc-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+    column-gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+  .proc-t, .proc-p { grid-column: 1; }
+  .proc-out {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    flex-direction: column;
+    gap: .6rem;
+    margin-top: .45rem;
+  }
+}
+
+/* ==========================================================================
+   Tech stack
+   ========================================================================== */
+.stk {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--bg);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+.stk-grid { display: grid; gap: 1px; background: oklch(0.30 0.018 250 / .5); border: 1px solid oklch(0.30 0.018 250 / .5); border-radius: var(--radius); overflow: hidden; }
+@media (min-width: 700px)  { .stk-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1050px) { .stk-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.stk-group {
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  background: var(--bg);
+  transition: background-color .3s;
+}
+.stk-group:hover { background: oklch(0.163 0.015 250); }
+.stk-h {
+  margin-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.stk-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.stk-group li {
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+  font-size: .93rem;
+  color: var(--muted);
+  transition: color .25s;
+}
+.stk-group li::before { content: ""; width: 5px; height: 5px; flex: none; background: oklch(0.30 0.018 250); transform: translateY(-2px); transition: background-color .25s; }
+.stk-group:hover li { color: var(--fg); }
+.stk-group:hover li::before { background: var(--accent); }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+.book {
+  /* no bottom padding: the gear provides the section's own foot, sitting
+     flush against the footer below it */
+  padding: clamp(5.5rem, 11vw, 9rem) 0 0;
+  /* a step down from .stk above it — the sections alternate tone all the way
+     down the page, and a matching pair would read as one long slab */
+  background: oklch(0.115 0.012 250);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+.book-in { text-align: center; }
+.book-in .sec-eyebrow { margin-bottom: 1.5rem; }
+
+.book-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+.book-title span { color: var(--accent); }
+.book-lede {
+  margin: 1.6rem auto 0;
+  max-width: 34rem;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  color: var(--muted);
+}
+
+.book-links {
+  display: grid;
+  gap: 1px;
+  max-width: 46rem;
+  margin: clamp(2.75rem, 5vw, 4rem) auto clamp(2.25rem, 4vw, 3rem);
+  background: oklch(0.30 0.018 250 / .5);
+  border: 1px solid oklch(0.30 0.018 250 / .5);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+@media (min-width: 620px)  { .book-links { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .book-links { grid-template-columns: repeat(4, 1fr); } }
+.book-link {
+  padding: 1.3rem 1rem;
+  background: oklch(0.163 0.015 250);
+  transition: background-color .3s;
+}
+.book-link:hover { background: oklch(0.215 0.018 250); }
+.book-link-h {
+  display: block;
+  margin-bottom: .5rem;
+  font-family: var(--font-mono);
+  font-size: .63rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.book-link-v { display: block; font-size: .95rem; color: var(--accent-hi); }
+
+.book-expect { margin-top: clamp(3.5rem, 6vw, 5rem); }
+.book-expect-h {
+  margin-bottom: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.book-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+  max-width: 60rem;
+  margin-inline: auto;
+}
+@media (min-width: 760px) { .book-steps { grid-template-columns: repeat(4, 1fr); } }
+.book-steps li {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .7rem;
+  font-size: .92rem;
+  color: var(--muted);
+}
+.book-steps span { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.foot {
+  padding: clamp(3.5rem, 6vw, 5rem) 0 2rem;
+  background: oklch(0.10 0.012 250);
+  border-top: 1px solid oklch(0.30 0.018 250 / .5);
+}
+.foot-top {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+@media (min-width: 820px) { .foot-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); } }
+
+.foot-tag { margin-top: 1rem; font-size: .92rem; color: var(--muted-2); }
+
+.foot-nav { display: grid; gap: 2rem; }
+@media (min-width: 560px) { .foot-nav { grid-template-columns: repeat(3, 1fr); } }
+.foot-h {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: .63rem;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.foot-nav a {
+  display: block;
+  margin-bottom: .65rem;
+  font-size: .92rem;
+  color: var(--muted);
+  transition: color .25s;
+}
+.foot-nav a:hover { color: var(--accent-hi); }
+
+.foot-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid oklch(0.30 0.018 250 / .5);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* ==========================================================================
+   Quote — a lifted band with a permanently churning quotation mark
+   ========================================================================== */
+.quote {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background: oklch(0.163 0.015 250);
+  border-top: 1px solid oklch(0.30 0.018 250 / .45);
+}
+.quote-in {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+  align-items: start;
+}
+@media (min-width: 800px) { .quote-in { grid-template-columns: auto minmax(0, 1fr); } }
+
+.quote-mark canvas {
+  display: block;
+  width: clamp(104px, 12vw, 168px);
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.quote-body { margin: 0; max-width: 46rem; }
+.quote-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.6vw, 2.75rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+.quote-by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .5rem 1.15rem;
+  margin-top: clamp(1.5rem, 2.5vw, 2.25rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid oklch(0.30 0.018 250 / .7);
+}
+.quote-name { font-weight: 600; font-size: 1rem; }
+.quote-role {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* ==========================================================================
+   The half gear — turning at the foot of the Book a Call section.
+   No background of its own: it sits on the section's own ground.
+   ========================================================================== */
+.book-gear {
+  position: relative;
+  height: clamp(150px, 20vw, 290px);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  overflow: hidden;
+}
+.gear-field { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+/* ==========================================================================
+   Additions — case-study figures, the "every project includes" block, and a
+   contact grid that now carries four links instead of three.
+   ========================================================================== */
+
+/* ---- case-study figures inside the product rail ---- */
+.prod-h-2 { margin-top: 1.6rem; }
+
+.prod-figs { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
+.prod-figs li {
+  display: grid;
+  gap: .15rem;
+  padding-left: .8rem;
+  border-left: 1px solid oklch(0.76 0.16 226 / .45);
+}
+.prod-fig-n {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--accent-hi);
+}
+.prod-fig-l {
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  color: var(--muted-2);
+}
+
+/* ---- "every project comes with" ---- */
+.proc-incl {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2.25rem, 4vw, 3rem);
+  border-top: 1px solid oklch(0.30 0.018 250 / .55);
+}
+.proc-incl-h {
+  margin-bottom: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.proc-incl-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: oklch(0.30 0.018 250 / .55);
+  border: 1px solid oklch(0.30 0.018 250 / .55);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+@media (min-width: 720px)  { .proc-incl-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .proc-incl-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.proc-incl-list li {
+  padding: 1.25rem 1.35rem;
+  background: oklch(0.163 0.015 250);
+  font-size: .875rem;
+  line-height: 1.6;
+  color: var(--muted);
+  transition: background-color .3s;
+}
+.proc-incl-list li:hover { background: oklch(0.205 0.017 250); }
+.proc-incl-list li span {
+  display: block;
+  margin-bottom: .25rem;
+  font-weight: 600;
+  color: var(--fg);
+}
